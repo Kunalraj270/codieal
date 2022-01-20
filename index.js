@@ -6,7 +6,11 @@ const expressLayouts = require('express-ejs-layouts');
 app.use(expressLayouts);
 
 //Use for assets
-app.use(express.static('./assets'))
+app.use(express.static('./assets'));
+
+//extract style and script from sub page into layout
+app.set('layout extractStyles' , true);
+app.set('layout extractScripts' , true);
 
 //Use express router
 app.use('/',require('./routes/index'));
