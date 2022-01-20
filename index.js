@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 const port = 8000;
+//import db
+const db = require('./config/mongoos')
 //layouts
 const expressLayouts = require('express-ejs-layouts');
 app.use(expressLayouts);
