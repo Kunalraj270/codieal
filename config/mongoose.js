@@ -9,7 +9,7 @@ const db = mongoose.connection;
 
 //error handling
 
-db.on('error' , console.error.bind(console , 'error connecting to db'));
+db.on('error' , console.error.bind(console , 'Error connecting to db'));
 
 //up and running then print the message
 
