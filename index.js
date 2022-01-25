@@ -11,8 +11,14 @@ const db = require('./config/mongoose');
 const session = require('express-session');
 const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
-//connect mongostor to mongo db
-// const MongoStore = require('connect-mongo')(session);
+//connect mongostore to mongo db
+// const  MongoStore = require('connect-mongo');
+const  MongoStore = require('connect-mongo');
+
+
+
+
+
 
 app.use(express.urlencoded());
 app.use(cookieParser());
@@ -50,12 +56,13 @@ app.use(session({
     cookie: {
         maxAge: (1000 * 60 * 100)
     },
-    // store : new MongoStore({
-    //     mongooseConnection : db,
-    //     autoRemove : 'disabled'
-    // } , function(err){
-    //     console.log(err || 'connect-mongo db fine');
-    // })
+    // store :MongoStore.create({ mongoUrl: 'mongodb://localhost/codieal_development' })
+    store: MongoStore.create({
+        mongoUrl: 'mongodb://localhost/codieal_development',
+        autoRemove: 'disabled'
+    }, function (err) {
+        console.log(err || 'connect-mongodb setup fine');
+    })
 }));
 
 app.use(passport.initialize());
