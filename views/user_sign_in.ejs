@@ -1,6 +1,52 @@
-<h1>Sign In</h1>
+<link rel="stylesheet" href="/css/user_sign_in.css">
+
+
+
+<div id="body">
+    <div class="split-screen">
+        <div class="left">
+            <section class="copy">
+                <h1>Every New Friend Is A New Adventure</h1>
+                <p>Let's get connetectd</p>
+            </section>
+        </div>
+        <div class="right">
+            <form action="/users/create-session" method="POST">
+                <section class="copy">
+                    <h1>Sign In</h1>
+                    <div class="login-container">
+                        <p>Don't have an account?<a href="/users/sign-up">Sign Up</a></p>
+                    </div>
+                </section>
+
+                <div class="input-container email">
+                    <label for="email">User Email</label>
+                    <input type="email" name="email" placeholder="Enter Your Email...." required>
+                    <!-- <i class="fas fa-envelope"></i> -->
+                </div>
+                <div class="input-container password">
+                    <label for="password">password</label>
+                    <input type="password" name="password" placeholder="Password" id="password" required>
+                    <!-- <i class="fas fa-lock"></i> -->
+                    <!-- <i class="fas fa-eye-slash" id="togglePassword"></i> -->
+                    <i class="bi bi-eye-slash" id="togglePassword"></i>
+                </div>
+                <div class="input-container submit">
+                    <!-- <label for="submit">Sign Up</label> -->
+                    <input type="submit" id="submit-btn" value="Sign In">
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<script src="/js/user_sign_in.js"></script>
+
+
+<!-- <h1>Sign In</h1>
 <form action="/users/create-session" method="POST">
     <input type="email" name="email" placeholder="Your Email" required>
     <input type="password" name="password" placeholder="Password" required>
     <input type="submit" value="Sign In">
-</form>
+</form> -->

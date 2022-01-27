@@ -1,0 +1,71 @@
+$font-stack: Helvetica, sans-serif;
+header {
+  
+    box-sizing: border-box;
+    position: fixed;
+    overflow: hidden;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 60px;
+    // margin: 0;
+    // padding: 0;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    color: white;
+    font-family:  sans-serif;
+    padding: 1em;
+    p {
+        margin-left: 20px;
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+    a {
+        text-decoration: none;
+    }
+}
+
+nav {
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    li {
+        display: inline-block;
+    }
+
+    a {
+        display: block;
+        padding: 6px 12px;
+        color: white;
+        text-decoration: none;
+    }
+    button {
+        background-color: rgb(128, 80, 177);
+        margin: 4px 6px;
+        padding: 1px;
+        border-radius: 4px;
+        border-style: none;
+        font-size: 0.7rem;
+        border-bottom: 1px solid black;
+        // font-family: consolas;
+        font:  $font-stack;
+        font-weight: 500;
+
+        &:hover{
+           box-shadow: 0px 0px 20px 10px  inset rebeccapurple; 
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    header{
+        width: 0;
+    }
+}

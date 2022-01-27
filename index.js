@@ -12,13 +12,18 @@ const session = require('express-session');
 const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
 //connect mongostore to mongo db
-// const  MongoStore = require('connect-mongo');
 const  MongoStore = require('connect-mongo');
 
+const sassMiddleware = require('node-sass-middleware');
 
-
-
-
+// we put before server run
+app.use(sassMiddleware({
+    src: './assets/scss',
+    dest: './assets/css',
+    debug: true,
+    outputStyle: 'expanded',
+    prefix: '/css'
+}));
 
 app.use(express.urlencoded());
 app.use(cookieParser());
