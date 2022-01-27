@@ -1,6 +1,5 @@
 $font-stack: Helvetica, sans-serif;
 header {
-  
     box-sizing: border-box;
     position: fixed;
     overflow: hidden;
@@ -17,7 +16,7 @@ header {
     align-items: center;
 
     color: white;
-    font-family:  sans-serif;
+    font-family: sans-serif;
     padding: 1em;
     p {
         margin-left: 20px;
@@ -27,6 +26,10 @@ header {
     a {
         text-decoration: none;
     }
+
+    // #user-name {
+    //     color: black;
+    // }
 }
 
 nav {
@@ -43,7 +46,7 @@ nav {
     a {
         display: block;
         padding: 6px 12px;
-        color: white;
+        color: black;
         text-decoration: none;
     }
     button {
@@ -55,17 +58,17 @@ nav {
         font-size: 0.7rem;
         border-bottom: 1px solid black;
         // font-family: consolas;
-        font:  $font-stack;
+        font: $font-stack;
         font-weight: 500;
 
-        &:hover{
-           box-shadow: 0px 0px 20px 10px  inset rebeccapurple; 
+        &:hover {
+            box-shadow: 0px 0px 20px 10px inset rebeccapurple;
         }
     }
 }
 
 @media screen and (max-width: 500px) {
-    header{
+    header {
         width: 0;
     }
 }

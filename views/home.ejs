@@ -1,5 +1,13 @@
 <!-- <link rel="stylesheet" href="/css/layout.css"> -->
-<h1>
+<h1 style="text-align:center; margin-top: 100px;">
     Codieal / <%= title %>
 </h1>
+
+<section id="feed-posts">
+    <h4>Post</h4>
+    <form action="/user/post" id="new-form-post" method="POST">
+        <textarea name="content" id="" cols="30" rows="10" placeholder="Type here...."></textarea>
+        <input type="submit" value="Post">
+    </form>
+</section>
 <!-- <script src="/js/home.js"></script> -->

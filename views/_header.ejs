@@ -3,11 +3,15 @@
     <nav>
         <ul class="nav__link">
             <% if(locals.user){ %>
-                <div>
+                <div >
                     <li>
-                        <a href="/users/profile">
+                        <a href="/users/profile" id="user-name">
                             <%= user.name%>
                         </a>
+                    </li>
+                    <li><a href="/">Home</a></li>
+                    <li>
+                        <a href="/users/profile">Profile</a>
                     </li>
                     <li>
                         <button> <a href="/users/Sign-Out">Sign Out</a></button>
