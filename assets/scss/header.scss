@@ -6,10 +6,12 @@ header {
     width: 100%;
     top: 0;
     left: 0;
-    height: 60px;
+    height: 70px;
     // margin: 0;
     // padding: 0;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+    // box-shadow: rgba(0, 0, 0, 0.1) 0px 7px 7px 0px;
+    // box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 4px 4px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
     // border-radius: 5px;
     display: flex;
     justify-content: space-between;
@@ -47,29 +49,34 @@ nav {
     a {
         display: block;
         padding: 6px 12px;
-        color: black;
+        color: #333333;
         text-decoration: none;
     }
     button {
-        background-color: #898F9C;
+        background-color: whitesmoke;
         margin: 4px 6px;
-        padding: 1px;
+        padding: 5px;
         border-radius: 4px;
         border-style: none;
-        font-size: 0.7rem;
-        border-bottom: 1px solid black;
+        font-size: 0.9rem;
+        // font-weight: bolder;
+        // border-bottom: 1px solid #f0f8ff ;
         // font-family: consolas;
-        font: $font-stack;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        letter-spacing: 0.001px;
         font-weight: 500;
 
         &:hover {
-            box-shadow: 0px 0px 20px 10px inset rebeccapurple;
+            box-shadow: 0px 0px 20px 10px inset #f0f8ff;
+            a{
+                color: black;
+            }
         }
     }
 }
 
-@media screen and (max-width: 500px) {
-    header {
-        width: 0;
-    }
-}
+// @media screen and (max-width: 500px) {
+//     header {
+//         width: 0;
+//     }
+// }

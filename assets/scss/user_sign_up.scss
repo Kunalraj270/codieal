@@ -84,6 +84,7 @@ label {
     margin-bottom: 0.5rem;
     font-size: 0.8rem;
     font-weight: bolder;
+    text-transform: capitalize;
 }
 .input-container.password {
     position: relative;
@@ -154,13 +155,13 @@ label {
     #body {
         // border: 2px solid white;
         // background-color: #cfd1e1;
-        margin: 150px 150px 0px 180px;
+        margin: 300px 200px 200px 200px;
         border-radius: 10px;
         box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
     }
     label {
         font-family: consolas;
-        text-transform: capitalize;
+        // text-transform: capitalize;
         font-size: 0.7rem;
     }
     form input[type="text"],
@@ -168,7 +169,7 @@ label {
     form input[type="password"],
     form input[type="confirm_password"] {
         margin-top: 10px;
-        padding: 5px;
+        padding: 8px;
         font-size: 0.9rem;
         border-radius: 6px;
         font-family: consolas;
