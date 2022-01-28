@@ -10,12 +10,13 @@ header {
     // margin: 0;
     // padding: 0;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
-    border-radius: 5px;
+    // border-radius: 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    color: white;
+    // color: white;
+    background-color: #4267B2;
     font-family: sans-serif;
     padding: 1em;
     p {
@@ -50,7 +51,7 @@ nav {
         text-decoration: none;
     }
     button {
-        background-color: rgb(128, 80, 177);
+        background-color: #898F9C;
         margin: 4px 6px;
         padding: 1px;
         border-radius: 4px;
