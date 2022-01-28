@@ -1,4 +1,5 @@
 const Post = require('../models/post');
+const Comment = require('../models/comment');
 
 module.exports.home = function (req, res) {
     // return res.end('<h1>Express is up for codieal!!</h1>');
@@ -27,7 +28,14 @@ module.exports.home = function (req, res) {
           title: 'Codieal | home',
           posts : posts
       })
-   })
+   });
+
+//    Comment.find({}).populate('user').exec(function(err , comments){
+//        return res.render('home' , {
+//            title : 'codieal | comment',
+//            comments : comments
+//        })
+//    })
 }
 
 // pending

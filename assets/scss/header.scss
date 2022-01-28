@@ -75,8 +75,8 @@ nav {
     }
 }
 
-// @media screen and (max-width: 500px) {
-//     header {
-//         width: 0;
-//     }
-// }
+@media screen and (max-width: 500px) {
+    header {
+        background-color: chocolate;
+    }
+}
