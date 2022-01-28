@@ -20,7 +20,15 @@ module.exports.home = function (req, res) {
     // });
 
     // Populate the user of each post
-   Post.find({}).populate('user').exec(function(err , posts){
+   Post.find({})
+   .populate('user')
+   .populate({
+       path : 'comments',
+       populate : {
+           path : 'user'
+       }
+   })
+   .exec(function(err , posts){
        if(err){
            console.log('Error in fetching the post of the user')
        }
@@ -30,12 +38,6 @@ module.exports.home = function (req, res) {
       })
    });
 
-//    Comment.find({}).populate('user').exec(function(err , comments){
-//        return res.render('home' , {
-//            title : 'codieal | comment',
-//            comments : comments
-//        })
-//    })
 }
 
 // pending
