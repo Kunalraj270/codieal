@@ -12,10 +12,17 @@
 
     <div id="post-container-list">
         <ul>
-            <% for(post of posts) { %>
-                <li>
-                    <%= post.content %>
-                </li>
+            <% for( post of posts) { %>
+                <p>
+                    <li>
+                        <%= post.content %>
+                            <br>
+
+                            <small>
+                                <%= post.user.name %>
+                            </small>
+                    </li>
+                </p>
                 <% } %>
         </ul>
     </div>
