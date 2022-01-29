@@ -1,5 +1,6 @@
 const Post = require('../models/post');
 const Comment = require('../models/comment');
+const User = require('../models/user');
 
 module.exports.home = function (req, res) {
     // return res.end('<h1>Express is up for codieal!!</h1>');
@@ -32,10 +33,15 @@ module.exports.home = function (req, res) {
        if(err){
            console.log('Error in fetching the post of the user')
        }
-      return res.render('home' , {
-          title: 'Codieal | home',
-          posts : posts
-      })
+        User.find({} , function(err , users){
+            return res.render('home' , {
+                title: 'Codieal | home',
+                posts : posts,
+                all_users : users
+            })
+        })
+
+
    });
 
 }
