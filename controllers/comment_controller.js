@@ -30,6 +30,9 @@ module.exports.destroy = function(req , res){
         if(comment.user == req.user.id){
 
             let postId = comment.post;
+            // Comment.deleteMany({ post: req.params.id }, function (err) {
+            //     return res.redirect('back');
+            // });
 
             comment.remove();
 
