@@ -1,5 +1,6 @@
 <!-- <link rel="stylesheet" href="/css/layout.css"> -->
-<h1 style="text-align:center; margin-top: 100px;">
+<link rel="stylesheet" href="/css/home.css">
+<h1>
     Codieal / <%= title %>
 </h1>
 
@@ -7,7 +8,9 @@
     <h4>Post</h4>
     <% if(locals.user) { %>
         <form action="/posts/create" id="new-form-post" method="POST">
-            <textarea name="content" id="" cols="30" rows="10" placeholder="Write Somethiing Here....." required></textarea>
+            <textarea name="content" id="" cols="30" rows="10" placeholder="What's on your mind,<%=user.name%>?"
+                required></textarea>
+
             <input type="submit" value="Post">
         </form>
         <% } %>
@@ -15,13 +18,21 @@
                 <ul>
                     <% for( post of posts) { %>
                         <li>
-                            <p>>
-                                <%= post.content %>
-                                    <br>
+                            <p>
+                                <!-- delete post -->
+                                <% if(locals.user && locals.user.id==post.user.id) { %>
+                                    <h3>
+                                        <a href="/posts/destroy/<%= post.id %>">X</a>
+                                    </h3>
 
-                                    <small>
-                                        <%= post.user.name %>
-                                    </small>
+                                    <% } %>
+
+                                        <%= post.content %>
+                                            <br>
+
+                                            <small>
+                                                <%= post.user.name %>
+                                            </small>
                             </p>
                             <div class="post-comment">
                                 <% if(locals.user) { %>
@@ -35,13 +46,14 @@
                                         <div class="posts-comment-list">
                                             <ul id="post-comment">
                                                 <% for(comment of post.comments) { %>
-                                                 <p>
-                                                    <%= comment.content%>
-                                                    <br>
-                                                    <small>
-                                                        <%= comment.user.name%>
-                                                    </small>
-                                                 </p>
+                                                    <p>
+                                                
+                                                        <%= comment.content%>
+                                                            <br>
+                                                            <small>
+                                                                <%= comment.user.name%>
+                                                            </small>
+                                                    </p>
                                                     <%}%>
                                             </ul>
                                         </div>
