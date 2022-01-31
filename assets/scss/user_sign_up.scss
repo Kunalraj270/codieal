@@ -15,7 +15,7 @@
     a {
         text-decoration: none;
         color: blue;
-        
+
         &:hover {
             font-weight: bolder;
             text-decoration: underline;
@@ -94,29 +94,27 @@ label {
         right: 14px;
         cursor: pointer;
     }
-    .fas{
+    .fas {
         left: 0;
         padding-left: 2px;
         font-size: 00.875rem;
-       }
+    }
 }
 
-.input-container.submit{
+.input-container.submit {
     position: relative;
-    i{
+    i {
         position: absolute;
         top: 6px;
         left: 115px;
     }
 }
 
-
-
 #submit-btn {
     display: block;
     width: 100%;
     background-color: #005b8f;
-    color: white;
+    // color: white;
     font-weight: 700;
     border: none;
     padding: 0.5rem;
@@ -137,7 +135,7 @@ label {
     .split-screen {
         flex-direction: row;
         height: 100vh;
-        .left{
+        .left {
             border-radius: 10px 0px 0px 10px;
         }
     }
@@ -183,9 +181,9 @@ label {
         }
     }
 
-   #togglePassword{
-       font-weight: 800;
-   }
+    #togglePassword {
+        font-weight: 800;
+    }
 
     #submit-btn {
         font-family: consolas;

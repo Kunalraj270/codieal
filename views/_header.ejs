@@ -1,34 +1,44 @@
+<nav>
 
-<header>
-    <p><a href="/">Nav Bar</a></p>
-    <nav>
-        <ul class="nav__link">
+   <div class="nav-left">
+
+       <p class="logo"><a href="/">Nav Bar</a></p>
+   </div>
+
+
+    <div class="nav-right">
+
+        <ul>
             <% if(locals.user){ %>
-                <div >
+                
                     <li>
                         <a href="/users/profile_user" id="user-name">
                             <%= user.name%>
                         </a>
                     </li>
-                    <li><a href="/">Home</a></li>
+                    <li class="home">
+                        <a href="/" id="home">Home</a></li>
                     <li>
                         <a href="/users/profile">Profile</a>
                     </li>
                     <li>
                         <button> <a href="/users/Sign-Out">Sign Out</a></button>
                     </li>
-                </div>
+                
                 <% }else{ %>
-                    <div class="nav-item">
-                        <li>
-                            <button><a href="/users/sign-in">Sign in</a></button>
-                        </li>
-                        <li>
-                            <button><a href="/users/sign-up">Sign up</a></button>
-                        </li>
-                    </div>
+                  
+                    <li>
+                        <button><a href="/users/sign-up">Sign up</a></button>
+                    </li>
+                    <li>
+                        <button><a href="/users/sign-in">Log in</a></button>
+                    </li>
+                    
 
                     <% } %>
         </ul>
+    </div>
+
+
+
     </nav>
-</header>

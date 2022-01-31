@@ -1,20 +1,39 @@
+<link rel="stylesheet" href="/css/_post.css">
+
 <li>
-    <p>
+  <div class="post-container">
+    <div class="user-profile">
+        <img src="https://bit.ly/3IQeBrw" alt="">
+        <div>
+            <p><%=post.user.name%></p>
+            <span>29/08/2002</span>
+        </div>
         <% if (locals.user && locals.user.id == post.user.id){ %>
-        <small>
-            <a href="/posts/destroy/<%= post.id %>">X</a>
-        </small>
-        <% } %>
+            <small>
+                <a href="/posts/destroy/<%= post.id %>">
+                    <i class="bi bi-three-dots-vertical"></i>
+                </a>
+            </small>
+            <% } %>
+       </div>
+      
+    <p>
         <%= post.content %>
         <br>
-        <small>
+
+        <!-- <small>
             <%= post.user.name %>
-        </small>
+        </small> -->
     </p>
+    <div class="like-comment-icon">
+        <i class="bi bi-heart"></i>
+        <i class="bi bi-chat-left-dots-fill"></i>
+    </div>
+
     <div class="post-comments">
         <% if (locals.user){ %>
             <form action="/comments/create" method="POST">
-                <input type="text" name="content" placeholder="What's on you mind <%=user.name%>" required>
+                <input type="text" name="content" placeholder="comment here" required>
                 <input type="hidden" name="post" value="<%= post._id %>" >
                 <input type="submit" value="Add Comment">
             </form>
@@ -31,5 +50,5 @@
             </ul>
         </div>
     </div>
-    
+</div>    
 </li>

@@ -1,69 +1,69 @@
-header {
-  box-sizing: border-box;
-  position: fixed;
-  overflow: hidden;
-  width: 100%;
-  top: 0;
-  left: 0;
-  height: 70px;
-  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #4267B2;
-  font-family: sans-serif;
-  padding: 1em;
-}
-
-header p {
-  margin-left: 20px;
-  font-size: 1.2rem;
-  font-weight: 600;
-}
-
-header a {
-  text-decoration: none;
-}
-
-nav ul {
+* {
   margin: 0;
   padding: 0;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #4267b2;
+  height: 50px;
+  padding: 5px 5%;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav .nav-left {
+  font: size 1.3rem;
+}
+
+nav .nav-left p a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.8rem;
+  font-weight: bolder;
+}
+
+nav .nav-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav .nav-right ul {
   list-style: none;
 }
 
-nav li {
+nav .nav-right li {
   display: inline-block;
+  font-size: 1.2rem;
 }
 
-nav a {
+nav .nav-right a {
   display: block;
   padding: 6px 12px;
-  color: #333333;
   text-decoration: none;
+  color: white;
 }
 
-nav button {
-  background-color: whitesmoke;
+nav .nav-right button {
+  background-color: white;
+  border-radius: 5px;
   margin: 4px 6px;
   padding: 5px;
-  border-radius: 4px;
   border-style: none;
   font-size: 0.9rem;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   letter-spacing: 0.001px;
   font-weight: 500;
 }
 
-nav button:hover {
-  box-shadow: 0px 0px 20px 10px inset #f0f8ff;
-}
-
-nav button:hover a {
+nav .nav-right button a {
   color: black;
 }
 
-@media screen and (max-width: 500px) {
-  header {
-    background-color: chocolate;
-  }
+nav .nav-right button:hover {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
