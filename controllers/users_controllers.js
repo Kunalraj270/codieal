@@ -1,14 +1,14 @@
 //export model user
 const User = require('../models/user');
 
-module.exports.profile = function (req, res) {
+module.exports.profile = async function (req, res) {
     // return res.end('<h1>Users Profile</h1>');
     User.findById(req.params.id , function(err , user){
         return res.render('user_profile', {
             title: 'Profile',
             profile_user : user
         });
-    })
+    });
 }
 
 //Update controller
