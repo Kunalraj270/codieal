@@ -1,63 +1,8 @@
-<link rel="stylesheet" href="/css/user_sign_up.css">
-<!-- <link rel="stylesheet" href="/css/user_sign_in.css"> -->
-
-<div id="body">
-    <div class="split-screen">
-        <div class="left">
-            <section class="copy">
-                <h1>Every New Friend Is A New Adventure</h1>
-                <p>Let's get connetectd</p>
-            </section>
-        </div>
-        <div class="right">
-            <form action="/users/create" method="POST">
-                <section class="copy">
-                    <h1>Sign Up</h1>
-                    <div class="login-container">
-                        <p>Already have an account?<a href="/users/sign-in">Sign in</a></p>
-                    </div>
-                </section>
-                <div class="input-container name">
-                    <label for="fname">User Name</label>
-                    <input type="text" name="name" placeholder="Enter Your Name...." required>
-                </div>
-                <div class="input-container email">
-                    <label for="email">User Email</label>
-                    <input type="email" name="email" placeholder="Enter Your Email...." required>
-                    <!-- <i class="fas fa-envelope"></i>                -->
-                </div>
-                <div class="input-container password">
-                    <label for="password">password</label>
-                    <input type="password" name="password" placeholder="Password" id="password" required>
-                    <!-- <i class="fas fa-lock"></i> -->
-                    <!-- <i class="far fa-eye-slash"></i> -->
-                    <i class="bi bi-eye-slash" id="togglePassword"></i>
-                </div>
-                <div class="input-container confirm_password">
-                    <label for="confirm_password">Confirm password</label>
-                    <input type="password" name="password" placeholder="Confirm Password" required>
-                    <!-- <i class="fas fa-lock"></i> -->
-                </div>
-                <div class="input-container submit">
-                    <!-- <label for="submit">Sign Up</label> -->
-                    <i class="bi bi-person-plus-fill"></i>
-                    <input type="submit" id="submit-btn"  value="Sign Up">
-                </div> 
-            </form>
-        </div>
-    </div>
-
-</div>
-
-<script src="/js/user_sign_in.js"></script>
-
-
-
-<!-- 
+<h1>Sign Up</h1>
 <form action="/users/create" method="POST">
     <input type="text" name="name" placeholder="Enter Your Name...." required>
     <input type="email" name="email" placeholder="Enter Your Email" required>
     <input type="password" name="password" placeholder="Password" required>
     <input type="password" name="Confirm_password" placeholder="Confirm Password" required>
     <input type="submit" value="Sign Up">
-</form> -->
+</form>
