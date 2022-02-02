@@ -1,0 +1,31 @@
+footer {
+  display: flex;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+
+footer p {
+  font-size: 1.1rem;
+  margin-top: 15px;
+}
+
+footer nav {
+  margin-left: 20px;
+}
+
+footer nav li {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+@media only screen and (max-width: 600px) {
+  footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column-reverse;
+  }
+  footer nav li {
+    padding: 4px;
+  }
+}
