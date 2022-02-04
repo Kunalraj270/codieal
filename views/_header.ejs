@@ -1,22 +1,24 @@
 <body
     class="
       antialiased
-      bg-gradient-to-r"
+      bg-gradient-to-r mt-16"
   >
   <header>
      <nav
         class="
+          fixed
+          top-0
+          z-50
           flex flex-wrap
           items-center
           justify-between
           w-full
-          py-6
+          py-4
           md:py-0
           px-10
           text-lg text-gray-700
-          bg-white
+          bg-indigo-300
           shadow-md
-        
         "
       >
        <div>
@@ -101,14 +103,14 @@
                 <a  class="md:p-4 py-2 block hover:text-purple-400" href="/users/profile"><%= user.name %></a>
             </li>
             <li class = "cursor pointer" >
-              <button class="bg-slate-800 text-white rounded-2xl px-2 hover:shadow-slate-500">  <a class="md:p-4 py-2 block" href="/users/sign-out">Sign Out</a></button>
+              <button class="bg-white text-black rounded-2xl px-2 hover:shadow-slate-500">  <a class="md:p-4 py-2 block" href="/users/sign-out">Sign Out</a></button>
             </li>
             <% }else{ %>
              <li class = "cursor pointer" >
-                <button class="bg-slate-800 text-white rounded-2xl mr-4"><a  class="md:p-4 py-2 block text-white" href="/users/sign-up">Sign Up</a></button>
+                <button class="bg-slate-800 text-white rounded-2xl mt-9 pb-5 "><a  class=" md:p-3 py-3  text-white" href="/users/sign-up">Sign Up</a></button>
             </li>
             <li class = "cursor pointer" >
-              <button class="bg-slate-800 text-white rounded-2xl " >  <a class="md:p-4 py-2 block hover:text-purple-400 text-white"href="/users/sign-in">Log In</a></button>
+              <button class="bg-slate-800 text-white rounded-2xl " >  <a class="md:p-2 py-2 block hover:text-purple-400 text-white"href="/users/sign-in">Log In</a></button>
             </li>
            
     
