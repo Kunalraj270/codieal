@@ -13,6 +13,7 @@
                 success: function(data){
                     let newPost = newPostDom(data.data.post);
                     $('#posts-list-container>ul').prepend(newPost);
+                    $(type[submit]).flash('success' , 'post created');
                     deletePost($(' .delete-post-button', newPost));
                 }, error: function(error){
                     console.log(error.responseText);
@@ -22,7 +23,7 @@
     }
 
 
-    // method to create a post in DOM
+  
     let newPostDom = function(post){
         return $(`<li id="post-${post._id}">
                     <p>

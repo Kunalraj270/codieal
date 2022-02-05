@@ -100,7 +100,7 @@
 
           <% if (locals.user){ %>
             <li>
-                <a  class="md:p-4 py-2 block hover:text-purple-400" href="/users/profile"><%= user.name %></a>
+                <a  class="md:p-4 py-2 block hover:text-purple-400" href="/users/user_profile/<%= user.id %>"><%= user.name %></a>
             </li>
             <li class = "cursor pointer" >
               <button class="bg-white text-black rounded-2xl px-2 hover:shadow-slate-500">  <a class="md:p-4 py-2 block" href="/users/sign-out">Sign Out</a></button>

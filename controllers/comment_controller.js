@@ -8,12 +8,25 @@ module.exports.create = async function (req, res) {
 
     try {
         let post = await Post.findById(req.body.post);
+
+        
         if (post) {
             let comment = await Comment.create({
                 content: req.body.content,
                 post: req.body.post,
                 user: req.user._id
             });
+
+
+            if(req.xhr){
+                return res.status(200).json({
+                    data : {
+                        post : post,
+                       comment : comment
+                    },
+                    message : 'comment created'
+                })
+            }
             post.comments.push(comment);
             post.save();
             req.flash('success' , 'Comment Posted')
