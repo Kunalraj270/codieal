@@ -38,6 +38,8 @@ app.use(cookieParser());
 
 //Use for assets
 app.use(express.static('./assets'));
+// make the upload path for the broweser
+app.use('/uploads' , express.static(__dirname + '/uploads'));
 //layouts
 app.use(expressLayouts);
 
