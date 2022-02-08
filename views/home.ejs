@@ -1,38 +1,60 @@
 <!-- <link rel="stylesheet" href="/css/layout.css"> -->
 <link rel="stylesheet" href="/css/home.css">
+<link rel="stylesheet" href="/css/_post.css">
+<div class="home-container">
+    <!-- left side container -->
+    <div class="left-container">
+        <h4>Feed Post</h4>
+    </div>
+    <!-- main container -->
+ <div class="main-content">
 
-<div id="home-container">
-  <section id="feed-posts">
-          <h4>Posts</h4>
-          <% if(locals.user){ %>
-          <form action="/posts/create" id="new-post-form" method="POST">
-              <textarea name="content" cols="30" rows="3" placeholder="Type Here..." required></textarea>
-              <input type="submit" value="Post">
-          </form>
-          <% } %>
+    <div class="write-post-container">
+
+        <div class="post-input-container">
+            <section id="feed-posts">
+                <h4>Posts</h4>
+                <% if(locals.user){ %>
+                <form action="/posts/create" id="new-post-form" method="POST">
+                    <textarea name="content" cols="30" rows="3" id="btnShowHide"  placeholder="Type Here..." required></textarea>
+                    <input type="submit" value="Post">
+                </form>
+                <% } %>
+            
+            </section>
+            
+        </div>
+    </div>
+    <div id="posts-list-container">
+        <ul>
+            <% for(post of posts){ %>
+                
+            <%- include('_post') -%>
+                
+            <%} %>
+        </ul>
+    </div>
+
+
+
+    </div>
+
+
+<!-- right container -->
+ <div class="right-container">
+    <section id="user-friends">
+        <h4>Friends</h4>
+        <% for(u of all_users){%>
+            <p>
+                <a href="/users/profile/<%= u.id %>"><%= u.name %></a>
+            </p>
+        <% } %>
+    </section>
+ </div>
       
-          <div id="posts-list-container">
-              <ul>
-                  <% for(post of posts){ %>
-                      
-                  <%- include('_post') -%>
-                      
-                  <%} %>
-              </ul>
-          </div>
-      </section>
-      
-      
-      <section id="user-friends">
-          <h4>Friends</h4>
-          <% for(u of all_users){%>
-              <p>
-                  <a href="/users/profile/<%= u.id %>"><%= u.name %></a>
-              </p>
-          <% } %>
-      </section>
+     
 </div>
 
 <script src="/js/home_posts.js"></script>
 
-<script src="/js/home_comment.js"></script>
+<script src="/js/home.js"></script>

@@ -1,0 +1,7 @@
+body {
+  font-family: consolas;
+}
+
+body #main-container {
+  height: 100%;
+}

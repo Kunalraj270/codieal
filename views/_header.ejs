@@ -17,13 +17,13 @@
           md:py-0
           px-10
           text-lg text-gray-700
-          bg-indigo-300
-          shadow-md
+         bg-white
+          drop-shadow-lg
         "
       >
        <div>
-          <a href="/users/home">
-           <h4 class="text-3xl font-bold">Meta</h4>
+          <a href="/">
+           <h4 class="text-3xl font-bold ">Meta</h4>
               <g
                 id="Group_330"
                 data-name="Group 330"
@@ -68,10 +68,10 @@
           </a>
         </div>
        
-         <svg
+         <svg 
             xmlns="http://www.w3.org/2000/svg"
             id="menu-button"
-            class="h-6 w-6 cursor-pointer md:hidden block"
+            class="h-6 w-6 cursor-pointer md:hidden block text-black"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -92,25 +92,28 @@
               md:flex
               md:justify-between 
               md:pt-0
-              space-x-8
+              space-x-3
               "
               
           >
 
 
           <% if (locals.user){ %>
+           <div>
+            <a href="/users/profile/<%= user.id %>">  <img class="rounded-full mt-1" src="<%=user.avatar%>" alt="<%=user.name%>" width="50"></a>
+           </div>
             <li>
-                <a  class="md:p-4 py-2 block hover:text-purple-400" href="/users/user_profile/<%= user.id %>"><%= user.name %></a>
+                <a  class="md:p-4 py-2 block hover:text-purple-400" href="/users/profile/<%= user.id %>"><%= user.name %></a>
             </li>
             <li class = "cursor pointer" >
-              <button class="bg-white text-black rounded-2xl px-2 hover:shadow-slate-500">  <a class="md:p-4 py-2 block" href="/users/sign-out">Sign Out</a></button>
+              <a class="md:p-4 py-2 block" href="/users/sign-out">Sign Out</a>
             </li>
             <% }else{ %>
              <li class = "cursor pointer" >
-                <button class="bg-slate-800 text-white rounded-2xl mt-9 pb-5 "><a  class=" md:p-3 py-3  text-white" href="/users/sign-up">Sign Up</a></button>
+              <a  class=" md:p-2 py-2 block" href="/users/sign-up">Sign Up</a>
             </li>
             <li class = "cursor pointer" >
-              <button class="bg-slate-800 text-white rounded-2xl " >  <a class="md:p-2 py-2 block hover:text-purple-400 text-white"href="/users/sign-in">Log In</a></button>
+               <a class="md:p-2 py-2 block "href="/users/sign-in">Log In</a>
             </li>
            
     

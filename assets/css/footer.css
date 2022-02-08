@@ -1,6 +1,7 @@
 footer {
   display: flex;
   font-weight: 400;
+  margin-top: 100vh;
   margin-bottom: 15px;
 }
 
