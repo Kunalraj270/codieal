@@ -20,30 +20,30 @@ module.exports.index = async function (req , res) {
 
 
 
-// // delelte post action
-// module.exports.destroy = async function (req, res) {
-//     //  convet to asyn await
-//     try {
-//         let post = await Posts.findById(req.params.id);
+// delelte post action
+module.exports.destroy = async function (req, res) {
+    //  convet to asyn await
+    try {
+        let post = await Posts.findById(req.params.id);
 
-//         // if (post.user == req.user.id) {
-//             post.remove();
+        // if (post.user == req.user.id) {
+            post.remove();
 
-//             await Comment.deleteMany({ post: req.params.id });
+            await Comment.deleteMany({ post: req.params.id });
 
-//             return res.json(200 , {
-//                 message : 'post associated comment delteted'
-//             });
+            return res.json(200 , {
+                message : 'post associated comment delteted'
+            });
             
-//         // } else {
-//         //     req.flash('error' , 'You can not delelte this post!')
-//         //     return res.redirect('back');
-//         // }
+        // } else {
+        //     req.flash('error' , 'You can not delelte this post!')
+        //     return res.redirect('back');
+        // }
 
-//     } catch (error) {
-//         console.log('******error' , error);
-//         return res.json(500 , {
-//             message : 'Internal server error'
-//         });
-//     }
-// }
+    } catch (error) {
+        console.log('******error' , error);
+        return res.json(500 , {
+            message : 'Internal server error'
+        });
+    }
+}
