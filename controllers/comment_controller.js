@@ -1,6 +1,6 @@
 const Comment = require('../models/comment');
 const Post = require('../models/post');
-const { post } = require('../routes/posts');
+
 
 module.exports.create = async function (req, res) {
 
@@ -31,7 +31,7 @@ module.exports.create = async function (req, res) {
             post.save();
             req.flash('success' , 'Comment Posted')
             return res.redirect('back');
-            return res.redirect('/');
+            // return res.redirect('/');
         }
 
     } catch (error) {
