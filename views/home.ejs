@@ -16,8 +16,9 @@
                 <h4>Posts</h4>
                 <% if(locals.user){ %>
                 <form action="/posts/create" id="new-post-form" method="POST">
-                    <textarea name="content" cols="30" rows="3" id="btnShowHide"  placeholder="Type Here..." required></textarea>
-                    <input type="submit" value="Post">
+                    <textarea name="content" cols="30" rows="3" id="btnShowHide"  placeholder="What's on your mind,<%=user.name%>?" required></textarea>
+                    <!-- <input type="submit" value="Post"> -->
+                    <button class="bubbly-button" type="submit" value="Post">Post</button>
                 </form>
                 <% } %>
             
@@ -25,7 +26,10 @@
             
         </div>
     </div>
-    <div id="posts-list-container">
+    
+    
+    
+    <div id="posts-list-container" class="posts-container">
         <ul>
             <% for(post of posts){ %>
                 
@@ -34,9 +38,6 @@
             <%} %>
         </ul>
     </div>
-
-
-
     </div>
 
 
@@ -58,3 +59,5 @@
 <script src="/js/home_posts.js"></script>
 
 <script src="/js/home.js"></script>
+
+<script src="/js/post_button.js"></script>
