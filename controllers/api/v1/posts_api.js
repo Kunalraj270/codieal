@@ -1,8 +1,8 @@
-const Posts = require('../../../models/post');
+const Post = require('../../../models/post');
 const Comment = require('../../../models/comment');
 module.exports.index = async function (req , res) {  
 
-    let posts = await Posts.find({})
+    let posts = await Post.find({})
     .sort('-createdAt')
         .populate('user')
         .populate({
@@ -24,7 +24,7 @@ module.exports.index = async function (req , res) {
 module.exports.destroy = async function (req, res) {
     //  convet to asyn await
     try {
-        let post = await Posts.findById(req.params.id);
+        let post = await Post.findById(req.params.id);
 
         // if (post.user == req.user.id) {
             post.remove();
@@ -36,8 +36,9 @@ module.exports.destroy = async function (req, res) {
             });
             
         // } else {
-        //     req.flash('error' , 'You can not delelte this post!')
-        //     return res.redirect('back');
+        //    return res.json(402 , {
+        //        message:"you can't delete the post"
+        //    });
         // }
 
     } catch (error) {

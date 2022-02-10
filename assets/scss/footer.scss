@@ -1,7 +1,7 @@
 footer{
     display: flex;
     font-weight: 400;
-    margin-top: 100vh;
+    height: 100%;
     p{
         font-size: 1.1rem;
         margin-top: 15px;
@@ -23,6 +23,8 @@ footer{
         align-items: center;
         flex-direction: column-reverse;
         nav{
+
+            margin-top: 40px;
             li{
                 padding: 4px;
             }

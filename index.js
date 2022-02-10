@@ -11,7 +11,7 @@ const db = require('./config/mongoose');
 const session = require('express-session');
 const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
-const passportJwt = require('./config/passport-jwt-Strategy');
+const passportJwt = require('./config/passport-jwt-strategy');
 //connect mongostore to mongo db
 const  MongoStore = require('connect-mongo');
 

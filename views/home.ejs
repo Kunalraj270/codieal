@@ -7,54 +7,80 @@
         <h4>Feed Post</h4>
     </div>
     <!-- main container -->
- <div class="main-content">
+    <div class="main-content">
 
-    <div class="write-post-container">
+        <div class="write-post-container">
 
-        <div class="post-input-container">
-            <section id="feed-posts">
-                <h4>Posts</h4>
-                <% if(locals.user){ %>
-                <form action="/posts/create" id="new-post-form" method="POST">
-                    <textarea name="content" cols="30" rows="3" id="btnShowHide"  placeholder="What's on your mind,<%=user.name%>?" required></textarea>
-                    <!-- <input type="submit" value="Post"> -->
-                    <button class="bubbly-button" type="submit" value="Post">Post</button>
-                </form>
-                <% } %>
-            
-            </section>
-            
+            <div class="post-input-container">
+                <section id="feed-posts">
+                    <h4>Posts</h4>
+                    <% if(locals.user){ %>
+                    <form action="/posts/create" id="new-post-form" method="POST">
+                        <textarea name="content" cols="30" rows="3" id="btnShowHide"
+                            placeholder="What's on your mind,<%=user.name%>?" required></textarea>
+                        <!-- <input type="submit" value="Post"> -->
+                        <button class="bubbly-button" type="submit" value="Post">Post</button>
+                    </form>
+                    <% } %>
+
+                </section>
+
+            </div>
+        </div>
+
+
+
+        <div id="posts-list-container" class="posts-container">
+            <ul>
+                <% for(post of posts){ %>
+
+                <%- include('_post') -%>
+
+                <%} %>
+            </ul>
         </div>
     </div>
-    
-    
-    
-    <div id="posts-list-container" class="posts-container">
-        <ul>
-            <% for(post of posts){ %>
-                
-            <%- include('_post') -%>
-                
-            <%} %>
-        </ul>
-    </div>
+
+
+    <!-- right container -->
+    <div class="right-container">
+        <section id="user-friends">
+            <h4>Friends</h4>
+            <% for(u of all_users){%>
+
+            <div class="friend-list">
+                <i class="bi bi-dot"></i>
+                <div> <img src="<%=u.avatar%>" alt="<%=u.name%>" width="50"></div>
+                <div> <a href="/users/profile/<%= u.id %>"><%= u.name %></a></div>
+            </div>
+            <% } %>
+        </section>
     </div>
 
 
-<!-- right container -->
- <div class="right-container">
-    <section id="user-friends">
-        <h4>Friends</h4>
-        <% for(u of all_users){%>
-            <p>
-                <a href="/users/profile/<%= u.id %>"><%= u.name %></a>
-            </p>
-        <% } %>
-    </section>
- </div>
-      
-     
 </div>
+
+<div class="side-bar">
+    <div class="social facebook">
+       <button class="Show">
+        <p><i class="bi bi-people-fill"></i></p>
+       </button>
+       <button class="Hide">
+        <p><i class="bi bi-people-fill"></i></p>
+       </button>
+    </div>
+    <div class="social twitter">
+       <button>
+        <p><i class="bi bi-chat-fill"></i> </p>
+       </button>
+    </div>
+    <div class="social google">
+      <button>
+        <p><i class="bi bi-rss-fill"></i></p>
+      </button>
+    </div>
+  </div>
+ 
 
 <script src="/js/home_posts.js"></script>
 

@@ -1,0 +1,16 @@
+.comment-section {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.comment-section small a {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.comment-section h3 {
+  font-size: 1.3rem;
+  text-transform: capitalize;
+}

@@ -7,7 +7,6 @@
      <nav
         class="
           fixed
-        
           top-0
           z-50
           flex flex-wrap
@@ -16,7 +15,6 @@
           w-full
           py-4
           md:py-0
-          h-16
           px-10
           text-lg text-gray-700
          bg-white
@@ -102,7 +100,7 @@
 
           <% if (locals.user){ %>
            <div>
-            <a href="/users/profile/<%= user.id %>">  <img class="rounded-full mt-1" src="<%=user.avatar%>" alt="<%=user.name%>" width="50"></a>
+            <a  class="flex justify-center" href="/users/profile/<%= user.id %>">  <img class=" rounded-full mt-1 h-16 w-16" src="<%=user.avatar%>" alt="<%=user.name%>" width="50"></a>
            </div>
             <li>
                 <a  class="md:p-4 py-2 block hover:text-purple-400" href="/users/profile/<%= user.id %>"><%= user.name %></a>
@@ -112,10 +110,10 @@
             </li>
             <% }else{ %>
              <li class = "cursor pointer" >
-              <a  class=" md:p-2 py-2 block" href="/users/sign-up">Sign Up</a>
+               <div class="rounded bg-violet-700 mx-36 h-16"> <a  class=" md:p-2 py-2 block" href="/users/sign-up">Sign Up</a></div>
             </li>
             <li class = "cursor pointer" >
-               <a class="md:p-2 py-2 block "href="/users/sign-in">Log In</a>
+              <button class="rounded bg-violet-700 mx-36 my-5"> <a class="md:p-2 py-2 block "href="/users/sign-in">Log In</a></button>
             </li>
            
     

@@ -14,27 +14,57 @@
 //     }
 // }
 
-body{
-    background-color: #e6e6e6;
-}
+// body{
+//     background-color: #e6e6e6;
+// }
 
 .home-container {
     display: flex;
     justify-content: space-between;
     padding: 13px 5%;
     .left-container {
-        background: aqua;
         flex-basis: 25%;
         position: sticky;
         top: 70px;
         align-self: flex-start;
+        font-size: 1.5rem;
     }
     .right-container {
-        background: aqua;
         flex-basis: 25%;
         position: sticky;
         top: 70px;
         align-self: flex-start;
+        h4 {
+            display: flex;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bolder;
+            text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+        }
+        .friend-list {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+            margin: 15px;
+            border-radius: 10px;
+            .bi-dot {
+                font-size: 3rem;
+                color: green;
+                position: absolute;
+                margin-left: 21px;
+                margin-top: 24px;
+            }
+            img {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+            }
+            a {
+                padding: 10px;
+                text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+            }
+        }
     }
 
     .main-content {
@@ -65,7 +95,6 @@ body{
         }
     }
 
-    
     .post-input-container {
         padding-left: 55px;
         padding-top: 20px;
@@ -74,7 +103,7 @@ body{
             width: 100%;
             border: 0;
             outline: 0;
-            border-bottom: 1px solid grey;
+            border-bottom: 1px solid red;
             background: transparent;
             resize: none;
         }
@@ -195,11 +224,98 @@ body{
     }
 }
 
-@media only screen and (max-width: 600px) {
-    .left-container {
-        width: 0;
+
+@media only screen and (max-width: 768px) {
+    .home-container {
+        .main-content {
+            flex-basis: 100%;
+            font-size: 1rem;
+        }
     }
-    .main-content {
-        width: 100%;
+    .left-container {
+        display: none;
+    }
+    .right-container {
+        display: none;
+        background: white;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        border-radius: 10px;
+        margin-left: -200px;
+        opacity: 3;
+        .friend-list {
+          margin-bottom: 10px;
+        }
+    }
+    a {
+        text-decoration: none;
+        vertical-align: middle;
+        text-align: center;
+        line-height: 3;
+    }
+    .side-bar {
+        height: auto;
+        width: 0px;
+        position: fixed;
+        text-align: center;
+        top: 50vh;
+        padding: 10px;
+        .Hide {
+            display: none;
+        }
+    }
+    .social {
+        margin-left: -200px;
+        width: 230px;
+        padding: 20;
+        display: inline-table;
+        height: 30px;
+        border-radius: 5px;
+        background-color: rgba(128, 128, 128, 0.73);
+        p {
+            color: black;
+            margin: 0px;
+            i {
+                left: 90px;
+                position: relative;
+                vertical-align: middle;
+                text-align: center;
+                font-size: 25px;
+                color: #fff;
+            }
+        }
+    }
+    .facebook {
+        background-color: #3b5998;
+    }
+    .twitter {
+        background-color: #4099ff;
+    }
+    .google {
+        background-color: #dd4b39;
+        p {
+            i {
+                left: 35px;
+            }
+        }
+    }
+    .linkedin {
+        p {
+            i {
+                left: 20px;
+            }
+        }
+        &:hover {
+            background-color: #0976b4;
+        }
+    }
+    .youtube {
+        p {
+            i {
+                left: 18px;
+            }
+        }
+        &:hover {
+            background-color: #e52d27;
+        }
     }
 }
