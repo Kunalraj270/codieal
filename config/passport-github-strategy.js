@@ -1,28 +1,32 @@
 const passport = require('passport');
-const githubStratgy = require('passport-github').Strategy;
+const githubStratgy = require('passport-github2');
 const crypto = require('crypto');
 const User = require('../models/user');
 
 passport.use(new githubStratgy({
     clientID: "8e51cd4e679ddd854d0a",
-    clientSecret: "5d114d7852c53bf77af44ccb2b455d6d028180c8",
-    callbackURL: "http://localhost:8000/auth/github/callback"
+    clientSecret: "c8e2f2c2f3bf51f18b9d63ffe7ecf1defb26768f",
+    callbackURL: "http://localhost:8000/users/auth/github/callback"
 },
+// function(accessToken, refreshToken, profile, done) {
+//     User.findOrCreate({ githubId: profile.id }, function (err, user) {
+//       return done(err, user);
+//     });
+//   }
     function (accessToken, refreshToken, profile, done) {
-        User.findOne({ emails: profile.emails[0].value }).exec(function (err, user) {
+        User.findOne({ emails: profile.emails }).exec(function (err, user) {
             if (err) {
                 console.log('Error in github passport-startgy', err);
                 return;
             }
             console.log(profile);
-            done(null, user);
 
             if (user) {
                 return done(null, user);
             } else {
                 User.create({
                     name: profile.displayName,
-                    email: profile.emails[0].value,
+                    email: profile.email,
                     password: crypto.randomBytes(20).toString('hex')
                 }, function (err) {
                     if (err) {

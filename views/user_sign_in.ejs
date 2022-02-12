@@ -21,12 +21,20 @@
       <ul class="dyanmic-texts">
         <li><span>Welcome Back!!</span></li>
       </ul>
+      <i class="bi bi-eye-slash  text-2xl absolute mb-28 ml-80 py-5 px-14 mt-72 cursor-pointer " id="togglePassword"></i>
       <a href="/users/auth/google"
         class="flex items-center shadow-md justify-center mt-5 font-bold px-4 py-2 space-x-2 transition-colors duration-300  rounded-md group hover:bg-gray-200 focus:outline-none">
         <span>
           <img class="w-7 h-7 font-bold" src="/images/google-logo.png" alt="google">
         </span>
         <span class="text-sm font-large">Sign Up with Google</span>
+      </a>
+      <a href="/users/auth/github"
+        class="flex items-center shadow-md justify-center mt-5 font-bold px-4 py-2 space-x-2 transition-colors duration-300  rounded-md group hover:bg-gray-200 focus:outline-none">
+        <span>
+          <img class="w-7 h-7 font-bold" src="/images/github.png" alt="github">
+        </span>
+        <span class="text-sm font-large">Sign In with Github</span>
       </a>
       <div class="flex flex-col space-y-6">
         <span class="flex items-center justify-center space-x-2">
@@ -76,3 +84,5 @@
         </div>
       </div>
     </div>
+
+    <script src="/js/user_sign_in.js"></script>

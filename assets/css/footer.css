@@ -2,6 +2,7 @@ footer {
   display: flex;
   font-weight: 400;
   height: 100%;
+  margin-top: 200px;
   margin-bottom: 15px;
 }
 
@@ -27,7 +28,7 @@ footer nav li {
     flex-direction: column-reverse;
   }
   footer nav {
-    margin-top: 40px;
+    margin-top: 100px;
   }
   footer nav li {
     padding: 4px;

@@ -24,7 +24,7 @@
             <li><span>Welcome Back!!</span></li>
           </ul>
      
-
+          <i class="bi bi-eye-slash  text-2xl absolute mb-28 ml-72 px-20 py-3 font-extrabold mt-96 cursor-pointer" id="togglePassword"></i>
 
 
       <!-- <h3 class="my-4 text-2xl font-semibold text-gray-700 text-center">Sign Up</h3>
@@ -35,6 +35,14 @@
           <img class="w-7 h-7 font-bold" src="/images/google-logo.png" alt="google">
         </span>
         <span class="text-sm font-large">Sign Up with Google</span>
+      </a>
+     
+      <a href="/users/auth/github"
+        class="flex items-center shadow-md justify-center mt-5 font-bold px-4 py-2 space-x-2 transition-colors duration-300  rounded-md group hover:bg-gray-200 focus:outline-none">
+        <span>
+          <img class="w-7 h-7 font-bold" src="/images/github.png" alt="github">
+        </span>
+        <span class="text-sm font-large">Sign Up with Github</span>
       </a>
       <div class="flex flex-col space-y-6">
         <span class="flex items-center justify-center space-x-2">
@@ -65,7 +73,7 @@
               </div>
               <input type="password" id="password" name="password" required
                 class="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200" />
-              <i class="bi bi-eye-slash  text-xl relative mb-28 ml-96" id="togglePassword"></i>
+              <!-- <i class="bi bi-eye-slash  text-xl relative mb-28 ml-96" id="togglePassword"></i> -->
             </div>
             <div class="flex flex-col space-y-1">
               <label for="email" class="text-sm font-semibold text-gray-500">Confirm Password</label>
@@ -86,7 +94,7 @@
 
             <span class="flex items-center justify-center space-x-2">
               <span class="h-px bg-gray-400 w-14 mt-5"></span>
-              <span class="font-normal text-gray-500 mt-5"><a href="/users/sign-in">or sign In</a></span>
+              <span class="font-normal  text-gray-500 mt-5 hover:text-black"><a href="/users/sign-in">or sign In</a></span>
               <span class="h-px bg-gray-400 w-14 mt-5"></span>
             </span>
             <div class="flex flex-col space-y-4">
