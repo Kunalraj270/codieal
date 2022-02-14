@@ -47,9 +47,9 @@
                             layout: 'topRight',
                             timeout: 1500,
                             
-                        }).on('onShow', function () {
-                            var audio = new Audio('/sound/success2.wav');
-                            audio.play();
+                        // }).on('onShow', function () {
+                        //     var audio = new Audio('/sound/success2.wav');
+                        //     audio.play();
                         }).show();
     <% } %>    
        <% if (flash.error && flash.error.length > 0) { %>
@@ -60,9 +60,9 @@
                             type: 'error',
                             layout: 'topRight',
                             timeout: 1500
-                        }).on('onShow', function () {
-                            var audio = new Audio('/sound/alert.wav');
-                            audio.play();
+                        // }).on('onShow', function () {
+                        //     var audio = new Audio('/sound/alert.wav');
+                        //     audio.play();
                         }).show();
     <% } %>    
                 </script>
