@@ -1,5 +1,6 @@
 const Comment = require('../models/comment');
 const Post = require('../models/post');
+const commentsMailer = require('../mailers/comment_mailer');
 
 
 module.exports.create = async function (req, res) {
@@ -17,8 +18,12 @@ module.exports.create = async function (req, res) {
                 user: req.user._id
             });
 
-
+            post.comments.push(comment);
+            post.save();
+            
+            commentsMailer.newComment(comment);
             if(req.xhr){
+                comment = await comment.populate('user',' name').execPopulate();
                 return res.status(200).json({
                     data : {
                         post : post,
@@ -27,15 +32,14 @@ module.exports.create = async function (req, res) {
                     message : 'comment created'
                 })
             }
-            post.comments.push(comment);
-            post.save();
+            
             req.flash('success' , 'Comment Posted')
             return res.redirect('back');
             // return res.redirect('/');
         }
 
     } catch (error) {
-        req.flash('error' , err);
+        req.flash('error' , error);
         return res.redirect('back');
     }
 
@@ -79,6 +83,16 @@ module.exports.destroy = async function (req, res) {
             comment.remove();
 
             let post = Post.findByIdAndUpdate(postId, { $pull: { comments: req.params.id } });
+            // send the comment id which was deleted back to the views
+            if (req.xhr){
+                return res.status(200).json({
+                    data: {
+                        comment_id: req.params.id
+                    },
+                    message: "Post deleted"
+                });
+            }
+            
             req.flash('success' , 'Comment Deleted!');
             return res.redirect('back');
         } else {
@@ -86,7 +100,7 @@ module.exports.destroy = async function (req, res) {
             return redirect('back');
         }
     } catch (error) {
-        req.flash('error' , err);
+        req.flash('error' , error);
         return res.redirect('back');
     }
 
