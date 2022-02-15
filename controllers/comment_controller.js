@@ -29,9 +29,9 @@ module.exports.create = async function (req, res) {
                     return;
                 }
                 console.log('job enqued', job.id);
-            })
+            });
             if(req.xhr){
-                comment = await comment.populate('user','name').execPopulate();
+                comment = await comment.populate('user','name email').execPopulate();
                 return res.status(200).json({
                     data : { 
                        comment : comment

@@ -23,7 +23,7 @@ module.exports.create = async function (req, res) {
 
 
         req.flash('success' , 'Post Published!');
-        return res.redirect('back');
+        return res.redirect('/');
     } catch (err) {
         req.flash('error' , err);
         return res.redirect('back');

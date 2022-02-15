@@ -10,7 +10,6 @@
                 <p>12:00 A.M | 29/08/2002</p>
             </div>
         </div>
-
         <small>
             <a class="delete-post-button" href="/posts/destroy/<%= post.id %>">
                 X
@@ -41,16 +40,12 @@
                 <input type="hidden" name="post" value="<%= post._id %>">
                 <input type="submit" value="Add Comment">
             </form>
-
             <% } %>
 
             <div class="post-comments-list">
                 <ul id="post-comments-<%= post._id %>">
                     <% for (comment of post.comments){%>
-
                     <%- include('_comment') -%>
-
-
                     <%} %>
                 </ul>
             </div>
@@ -60,6 +55,44 @@
 
 
 </div>
+<!-- <li id="post-<%= post._id %>">
+    <p>
+        <% if (locals.user && locals.user.id==post.user.id){ %>
+            <small>
+                <a class="delete-post-botton" href="/posts/destroy/<%= post.id %>">X</a>
+            </small>
+            <% } %>
+                <%= post.content %>
+                    <br>
+                    <small>
+                        <%= post.user.name %>
+                    </small>
+                      CHANGE :: display the likes of this post, if the user is logged in, then show the link to toggle likes, else, just show the count
+                    <br>
+        
+    </p>
+    <div class="post-comments">
+        <%if(locals.user){%>
+            <form action="/comments/create" id="new-comment-form" method="POST">
+                <input type="text" name="content" placeholder="Type here" required>
+                <input type="hidden" name="post" value="<%= post._id%>">
+                <input type="submit" value="Add comment">
+            </form>
+            <%}%>
+                <div class="post-comments-list">
+                    <ul id="post-comments-<%= post._id %>">
+                        <% for (comment of post.comments){%>
+
+
+                            <%- include('_comment') -%>
+
+
+                                <%} %>
+                    </ul>
+                </div>
+    </div>
+</li> -->
+
 
 <script src="/js/home_comment.js"></script>
 <script src="/js/home_posts.js"></script>

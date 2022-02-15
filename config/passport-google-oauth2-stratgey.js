@@ -24,7 +24,7 @@ passport.use(new googleSratergy({
             } else {
                 User.create({
                     name: profile.displayName,
-                    email: profile.email[0].value,
+                    email: profile.emails[0].value,
                     // crypto is use to generate random password
                     password: crypto.randomBytes(20).toString('hex')
                 }, function (err) {
