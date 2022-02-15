@@ -24,7 +24,7 @@ module.exports.create = async function (req, res) {
 
         req.flash('success' , 'Post Published!');
         return res.redirect('back');
-    } catch (error) {
+    } catch (err) {
         req.flash('error' , err);
         return res.redirect('back');
     }
@@ -72,7 +72,7 @@ module.exports.destroy = async function (req, res) {
             return res.redirect('back');
         }
 
-    } catch (error) {
+    } catch (err) {
         req.flash('error' , err);
         return res.redirect('back');
     }

@@ -36,7 +36,7 @@
 
         <div class="post-comments">
             <% if (locals.user){ %>
-            <form action="/comments/create" id="new-comment-form" method="POST">
+            <form action="/comments/create" id="post-<%= post._id %>-comments-form" method="POST">
                 <input type="text" name="content" placeholder="Comment Here..." required>
                 <input type="hidden" name="post" value="<%= post._id %>">
                 <input type="submit" value="Add Comment">
@@ -61,6 +61,6 @@
 
 </div>
 
-<script src="/js/home_posts.js"></script>
 <script src="/js/home_comment.js"></script>
+<script src="/js/home_posts.js"></script>
 <script src="js/comment.js"></script>

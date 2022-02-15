@@ -1,7 +1,8 @@
 const Comment = require('../models/comment');
 const Post = require('../models/post');
 const commentsMailer = require('../mailers/comment_mailer');
-
+const queue = require('../config/kue');
+const commentEmailWorker = require('../workers/comment_email_worker');
 
 module.exports.create = async function (req, res) {
 
@@ -21,12 +22,18 @@ module.exports.create = async function (req, res) {
             post.comments.push(comment);
             post.save();
             
-            commentsMailer.newComment(comment);
+            // commentsMailer.newComment(comment);
+            let job = queue.create('emails' , comment).save(function(err){
+                if(err){
+                    console.log('error in sendign a queue' , err);
+                    return;
+                }
+                console.log('job enqued', job.id);
+            })
             if(req.xhr){
-                comment = await comment.populate('user',' name').execPopulate();
+                comment = await comment.populate('user','name').execPopulate();
                 return res.status(200).json({
-                    data : {
-                        post : post,
+                    data : { 
                        comment : comment
                     },
                     message : 'comment created'
@@ -34,13 +41,13 @@ module.exports.create = async function (req, res) {
             }
             
             req.flash('success' , 'Comment Posted')
-            return res.redirect('back');
+            return res.redirect('/');
             // return res.redirect('/');
         }
 
     } catch (error) {
         req.flash('error' , error);
-        return res.redirect('back');
+        return;
     }
 
 
@@ -101,7 +108,7 @@ module.exports.destroy = async function (req, res) {
         }
     } catch (error) {
         req.flash('error' , error);
-        return res.redirect('back');
+        return;
     }
 
     /*

@@ -15,16 +15,16 @@
             <a class="delete-comment-button" href="/comments/destroy/<%= comment.id %>">X</a>
         </small>
         <% } %>
-        <h3>  <%= comment.content %></h3>
+          <%= comment.content %>
         <br>
-        <!-- <small>
+        <small>
             <%= comment.user.name %>
-        </small> -->
+        </small>
         </p>
 
     </li>
 </div>
 
 
-<script src="/js/home_posts.js"></script>
 <script src="/js/home_comment.js"></script>
+<script src="/js/home_posts.js"></script>
