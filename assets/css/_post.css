@@ -1,7 +1,8 @@
 .post-item {
   box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
   box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
-  border-radius: 30px;
+  border-radius: 10px;
+  border: 1px solid lightblue;
   padding: 4px 30px 20px;
   font-size: 1.5rem;
   margin-top: 30px;
@@ -22,15 +23,12 @@
 
 .post-item .avatar p {
   margin-top: 5px;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 .post-item .post-row {
-  border-top: 2px solid gray;
-  border-bottom: 2px solid gray;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
 }
 
 .post-item .post-row .activity-icons > div {

@@ -13,7 +13,7 @@ module.exports.index = async function (req , res) {
         });
 
     return res.json({
-        message : "Lists of post",
+        message : "List of post",
         posts : posts
     });
 }
