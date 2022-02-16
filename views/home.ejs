@@ -84,6 +84,13 @@
 
   <script src="/js/home_comment.js"></script>
 <script src="/js/home_posts.js"></script>
+<script src="/js/toggle_likes.js"></script>
+<script>
+    $('.toggle-like-button').each(function(){
+        let self = this;
+        let toggleLike = new ToggleLike(self);
+    });
+</script>
 
 <script src="/js/home.js"></script>
 

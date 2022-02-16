@@ -29,6 +29,9 @@
 .post-item .post-row {
   border-top: 1px solid gray;
   border-bottom: 1px solid gray;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .post-item .post-row .activity-icons > div {

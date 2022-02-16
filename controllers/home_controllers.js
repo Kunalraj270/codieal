@@ -30,8 +30,16 @@ module.exports.home = async function (req, res) {
                 path: 'comments',
                 populate: {
                     path: 'user'
+                },
+                // changes ++
+                populate : {
+                    path : 'likes'
                 }
-            });
+            }).populate('comments')
+            .populate('likes');
+
+
+
         let users = await User.find({});
         return res.render('home', {
             title: 'Codieal | home',
