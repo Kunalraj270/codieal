@@ -9,8 +9,12 @@ module.exports.index = async function (req , res) {
             path: 'comments',
             populate: {
                 path: 'user'
-            }
-        });
+            },
+            populate : {
+                path : 'likes'
+            },
+        }).populate('comments')
+        .populate('likes');
 
     return res.json({
         message : "List of post",

@@ -1,40 +1,54 @@
-<link rel="stylesheet" href="/css/_comment.css">
-
-<div class="comment-section">
+<div class="mt-10">
     <li id="comment-<%= comment._id %>">
+    <hr class="border-gray-400">
         <p>
-            <% if (locals.user && locals.user.id == comment.user.id){ %>
-                <div class="avatar">
-                    <img src="<%=comment.user.avatar%>" alt="<%=user.name%>" width="100">
-                    <div>
-                        <p><%=comment.user.name%></p>
-                        <p>12:00 A.M | 29/08/2002</p>
+            <% if (locals.user && locals.user.id==comment.user){ %>
+                <div  class="flex items-center space-x-5 justify-between mt-3">
+                    <div  class="flex items-center space-x-5">
+                        <div>
+                            <p>
+                                <%=comment.user.name%>
+                            </p>
+                            <p>12:00 A.M | 29/08/2002</p>
+                        </div>
                     </div>
+                    <small>
+                        <a class="delete-comment-button" href="/comments/destroy/<%= comment.id %>">
+                            <i class="bi bi-trash-fill"></i>
+                        </a>
+                    </small>
                 </div>
-        <small>
-            <a class="delete-comment-button" href="/comments/destroy/<%= comment.id %>">X</a>
-        </small>
-        <% } %>
-          <%= comment.content %>
-        <br>
-        <small>
-            <%= comment.user.name %>
-        </small>
-        <!-- comment like -->
-        <small>
-            <% if (locals.user){ %>
-                <a class="toggle-like-button" data-likes="<%= comment.likes.length %>" href="/likes/toggle/?id=<%=comment._id%>&type=Comment">
-                        <%= comment.likes.length %> Likes
-                </a>
-            <% }else{ %>
-                <%= comment.likes.length %> Likes
-            <% } %>
-        </small>
+                <% } %>
+                   <div class="px-12">
+                    <%= comment.content %>
+                   </div>
+                        <br>
+                        <small>
+                            <%= comment.user.name %>
+                        </small>
+                        <!-- CHANGE :: display the likes of this comment, if the user is logged in, then show the link to toggle likes, else, just show the count -->
+                        <!-- study about the data attribute -->
+                        <small>
+                            <% if (locals.user){ %>
+                                <a class="toggle-like-button px-12" data-likes="<%= comment.likes.length %>"
+                                    href="/likes/toggle/?id=<%=comment._id%>&type=Comment">
+                                    
+                                    <%= comment.likes.length %> <i class="bi bi-heart text-xl">Like</i>
+                                </a>
+                               <a href=""> <i class="bi bi-chat-right-text">Reply</i></a>
+                               <!-- <img class="w-5 h-5" src="/images/thumbs-up-solid.png" alt="Like"> -->
+                                <% }else{ %>
+                                    <%= comment.likes.length %> <i class="bi bi-heart text-xl">Like</i>
+                                        <% } %>
+                        </small>
+
         </p>
 
     </li>
+    <hr class="border-gray-400">
 </div>
 
 
 <script src="/js/home_comment.js"></script>
 <script src="/js/home_posts.js"></script>
+<script src="js/comment.js"></script>

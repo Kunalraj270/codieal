@@ -76,26 +76,26 @@ module.exports.create = async function (req, res) {
 
 //Comment delete action
 
-module.exports.destroy = async function (req, res) {
-    // Convert to async await
 
-    try {
+module.exports.destroy = async function(req, res){
+
+    try{
         let comment = await Comment.findById(req.params.id);
-        if (comment.user == req.user.id) {
+
+        if (comment.user == req.user.id){
 
             let postId = comment.post;
-            // Comment.deleteMany({ post: req.params.id }, function (err) {
-            //     return res.redirect('back');
-            // });
 
             comment.remove();
 
-            let post = Post.findByIdAndUpdate(postId, { $pull: { comments: req.params.id } });
-            // delete like associate with like
-            await Like.deleteMany({likeable : comment_id , onModel : 'Comment'});
-            
+            let post = Post.findByIdAndUpdate(postId, { $pull: {comments: req.params.id}});
+
+        //  destroy the associated likes for this comment
+            await Like.deleteMany({likeable: comment._id, onModel: 'Comment'});
+
+
+            // send the comment id which was deleted back to the views
             if (req.xhr){
-                // send the comment id which was deleted back to the views
                 return res.status(200).json({
                     data: {
                         comment_id: req.params.id
@@ -103,17 +103,20 @@ module.exports.destroy = async function (req, res) {
                     message: "Post deleted"
                 });
             }
-            
-            req.flash('success' , 'Comment Deleted!');
+
+
+            req.flash('success', 'Comment deleted!');
+
             return res.redirect('back');
-        } else {
-            req.flash('error' , 'You cannot comment on this Post');
-            return redirect('back');
+        }else{
+            req.flash('error', 'Unauthorized');
+            return res.redirect('back');
         }
-    } catch (error) {
-        req.flash('error' , error);
+    }catch(err){
+        req.flash('error', err);
         return;
     }
+    
 
     /*
     Comment.findById(req.params.id, function (err, comment) {

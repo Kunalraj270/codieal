@@ -21,14 +21,15 @@ class ToggleLike{
                 console.log(likesCount);
                 if (data.data.deleted == true){
                     likesCount -= 1;
-                    
+                    $(self).html(`${likesCount}   <i class="bi bi-heart text-xl">Like</i>`);
                 }else{
                     likesCount += 1;
+                    $(self).html(`${likesCount}   <i class="bi bi-heart-fill text-red-600 text-xl ">Like</i>`);
                 }
 
 
                 $(self).attr('data-likes', likesCount);
-                $(self).html(`${likesCount} Likes`);
+                // $(self).html(`${likesCount} <i class="bi bi-heart-fill text-red-600 ">Like</i>`);
 
             })
             .fail(function(errData) {

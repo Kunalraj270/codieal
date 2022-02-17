@@ -1,4 +1,4 @@
-  class  PostComments {
+class PostComments {
     // constructor is used to initialize the instance of the class whenever a new instance is created
     constructor(postId) {
         this.postId = postId;
@@ -55,6 +55,14 @@
         // I've added a class 'delete-comment-button' to the delete comment link and also id to the comment's li
         return $(`<li id="comment-${comment._id}">
                         <p>
+                        
+<div class="avatar">
+<img src="<%=comment.user.avatar%>" alt="<%=user.name%>" width="100">
+<div>
+    <p><%=comment.user.name%></p>
+    <p>12:00 A.M | 29/08/2002</p>
+</div>
+</div>
                             
                             <small>
                                 <a class="delete-comment-button" href="/comments/destroy/${comment._id}">X</a>
@@ -65,11 +73,11 @@
                             <small>
                                 ${comment.user.name}
                             </small>
-                            <br>
+                        
                             <small>
                             
                                 <a class="toggle-like-button" data-likes="0" href="/likes/toggle/?id=${comment._id}&type=Comment">
-                                    0 Likes
+                                    0  <i class="bi bi-heart text-xl">Like</i>
                                 </a>
                             
                             </small>

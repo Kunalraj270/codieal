@@ -31,10 +31,9 @@ module.exports.home = async function (req, res) {
                 populate: {
                     path: 'user'
                 },
-                // changes ++
                 populate : {
                     path : 'likes'
-                }
+                },
             }).populate('comments')
             .populate('likes');
 
