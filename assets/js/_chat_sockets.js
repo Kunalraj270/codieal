@@ -1,3 +1,35 @@
+class chatEngine {
+    constructor(chatBoxId , userEmail){
+        this.chatBox = $(`#${chatBoxId}`);
+        this.userEmail = userEmail;
+        // io is golobal varibale
+        this.socket = io.connect('http://localhost:5000');
+        if(this.userEmail){
+            this.connectionHandler();
+        }
+    }
+
+    connectionHandler(){
+        this.socket.on('connect' ,  function(){
+            console.log('connection is established');
+        });
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var element = $('.floating-chat');
 var myStorage = localStorage;
 
