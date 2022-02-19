@@ -1,11 +1,10 @@
-body{
-    font-family: consolas;
-}
+
 
 .body-header {
     display: flex;
+    flex-direction: column;
     width: 100%;
-    height: 40vh;
+    height: 250px;
     opacity: 0.8;
     background: #000;
     // background-image: url("https://images.pexels.com/photos/147413/twitter-facebook-together-exchange-of-information-147413.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
@@ -66,12 +65,16 @@ body{
 
 
     form {
-        position: absolute;
-        top: 60%;
-        height: 80vh;
+        // position: absolute;
+
+        // top: 100%;
+        // height: 80vh;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 100px;
         border-radius: 40px;
         padding: 60px;
-        padding-bottom: 10px;
+        padding-bottom: 100px;
         box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px,
             rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
         input {

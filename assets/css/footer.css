@@ -1,36 +1,6 @@
-footer {
-  display: flex;
-  font-weight: 400;
-  height: 100%;
-  margin-top: 200px;
-  margin-bottom: 15px;
-}
-
-footer p {
-  font-size: 1.1rem;
-  margin-top: 15px;
-}
-
-footer nav {
-  margin-left: 20px;
-}
-
-footer nav li {
-  font-weight: 600;
-  font-size: 1.1rem;
-}
-
-@media only screen and (max-width: 600px) {
-  footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column-reverse;
-  }
-  footer nav {
-    margin-top: 100px;
-  }
-  footer nav li {
-    padding: 4px;
-  }
+.footer {
+  width: 100%;
+  background-color: #fff;
+  height: 100;
+  margin-top: auto;
 }

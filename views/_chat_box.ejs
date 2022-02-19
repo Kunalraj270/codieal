@@ -1,37 +1,23 @@
-<link rel="stylesheet" href="/css/_chat_box.css">
-<% if(locals.user) { %>
+<!-- CHANGE :: Creat the code for chat box -->
+<% if (locals.user){ %>
+	<div id="user-chat-box">
+		<ul id="chat-messages-list">
+			
+			<li class="other-message">
+				<span>Other Message</span>
+			</li>
+			<li class="self-message">
+				<span>
+					Self Message
+				</span>
+			</li>
+		</ul>
+		<div id="chat-message-input-container">
+			<input id="chat-message-input" placeholder="Type message here">
+			<button id="send-message">Send</button>
+		</div>
 
-    <div class="floating-chat p-8 font-extrabold bg-orange-300" id="user-chat-box">
-        <i class="fa fa-comments text-2xl" aria-hidden="true"></i>
-        <div class="chat">
-            <div class="header">
-                <span class="title">
-                    what's on your mind?
-                </span>
-                <button>
-                    <i class="fa fa-times" aria-hidden="true"></i>
-                </button>
-                             
-            </div>
-            <ul class="messages">
-                <li class="other">asdasdasasdasdasasdasdasasdasdasasdasdasasdasdasasdasdas</li>
-                <li class="other">Are we dogs??? 🐶</li>
-                <li class="self">no... we're human</li>
-                <li class="other">are you sure???</li>
-                <li class="self">yes.... -___-</li>
-                <li class="other">if we're not dogs.... we might be monkeys 🐵</li>
-                <li class="self">i hate you</li>
-                <li class="other">don't be so negative! here's a banana 🍌</li>
-                <li class="self">......... -___-</li>
-            </ul>
-            <div class="footer">
-                <div class="text-box" contenteditable="true" disabled="true"></div>
-                <button id="sendMessage" class="outline-none border-none"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-            </div>
-        </div>
-    </div>
+	</div>
+<% } %>
 
-
-
-
-<% } %>    
+<!-- <script src="js/chat_engine.js"></script> -->

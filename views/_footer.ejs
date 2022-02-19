@@ -1,16 +1,21 @@
-<link rel="stylesheet" href="/css/footer.css">
-<footer id="layout-footer">
-    <div>
-        <p>
-            &#169;2022 Kunal Raj. All Rights Reserved
+<!-- <link rel="stylesheet" href="/css/footer.css"> -->
+<footer class="footer flex justify-center h-19  flex-col-reverse items-center bg-white shadow-2xl">
+    <div >
+        <p >
+            &#169;2022 Kunal Raj | All Rights Reserved
         </p>
     </div>
  
     <div>
-        <nav class="footer-nav">
-            <ul>
+        <nav>
+            <ul  class=" font-bold text-xl">
                 <li>
                     <a href="/">Home</a>
+                </li>
+                <li>
+                   <% if(locals.user) { %>
+                    <a href="/users/profile/<%= user.id %>">Profile</a>
+                    <%}%>    
                 </li>
             </ul>
         </nav>

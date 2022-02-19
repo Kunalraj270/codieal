@@ -1,8 +1,8 @@
 body{
     // background: #e6e6e6;
     font-family:consolas;
-        #main-container{
-        height: 100vh;
-    }
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
 

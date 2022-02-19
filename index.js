@@ -24,11 +24,12 @@ const flash = require('connect-flash');
 
 const customMware = require('./config/middleware');
 
+
 // set up chat server to be uses with socket.io
 const chatServer = require('http').Server(app);
 const chatSockets = require('./config/chat_sockets').chatSockets(chatServer);
 chatServer.listen(5000);
-console.log('chat server is up running on port on 3000');
+console.log('chat server is up running on port on 5000');
 
 // we put before server run
 app.use(sassMiddleware({

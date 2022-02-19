@@ -56,13 +56,6 @@ class PostComments {
         return $(`<li id="comment-${comment._id}">
                         <p>
                         
-<div class="avatar">
-<img src="<%=comment.user.avatar%>" alt="<%=user.name%>" width="100">
-<div>
-    <p><%=comment.user.name%></p>
-    <p>12:00 A.M | 29/08/2002</p>
-</div>
-</div>
                             
                             <small>
                                 <a class="delete-comment-button" href="/comments/destroy/${comment._id}">X</a>
