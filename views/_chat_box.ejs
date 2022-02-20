@@ -1,8 +1,7 @@
 <!-- CHANGE :: Creat the code for chat box -->
 <% if (locals.user){ %>
-	<div id="user-chat-box">
+	<!-- <div id="user-chat-box">
 		<ul id="chat-messages-list">
-			
 			<li class="other-message">
 				<span>Other Message</span>
 			</li>
@@ -10,14 +9,49 @@
 				<span>
 					Self Message
 				</span>
+				
 			</li>
+
 		</ul>
 		<div id="chat-message-input-container">
 			<input id="chat-message-input" placeholder="Type message here">
 			<button id="send-message">Send</button>
 		</div>
 
-	</div>
-<% } %>
+	</div> -->
+	<div class="floating-chat p-8">
+		<i class="fa fa-comments text-2xl" aria-hidden="true"></i>
+		<div class="chat" id="user-chat-box">
+			<div class="header">
+				<span class="title">
+					what's on your mind?
+				</span>
+				<button>
+					<i class="fa fa-times" aria-hidden="true"></i>
+				</button>
 
-<!-- <script src="js/chat_engine.js"></script> -->
+			</div>
+			<!-- <div id="user-chat-box"> -->
+			<ul id="chat-messages-list" class="messages">
+				<li class="other-message other">
+					<span>Other Message</span>
+				</li>
+				<li class="self-message self">
+					<span>
+						Self Message
+					</span>
+
+				</li>
+
+			</ul>
+			<div id="chat-message-input-container" class="footer">
+				<div class="text-box" contenteditable="true" style="display: none;" disabled="true"></div>
+
+				<input id="chat-message-input" placeholder="Type message here">
+				<button id="send-message">Send</button>
+			</div>
+
+		</div>
+	</div>
+	</div>
+	<% } %>
