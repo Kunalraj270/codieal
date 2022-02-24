@@ -1,4 +1,5 @@
 const express = require('express');
+const env = require('./config/enviroment');
 //cookies parser
 const cookieParser = require('cookie-parser');
 const app = express();
@@ -30,6 +31,7 @@ const chatServer = require('http').Server(app);
 const chatSockets = require('./config/chat_sockets').chatSockets(chatServer);
 chatServer.listen(5000);
 console.log('chat server is up running on port on 5000');
+const path = require('path');
 
 // we put before server run
 app.use(sassMiddleware({
@@ -72,7 +74,7 @@ app.set('views', './views');
 app.use(session({
     name: 'codieal',
     // TODO to set secret before deployment into production level
-    secret: 'helloWorld',
+    secret: env.session_cookie_key,
     saveUninitialized: false,
     resave: false,
     cookie: {

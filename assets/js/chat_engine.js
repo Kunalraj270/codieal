@@ -1,64 +1,62 @@
-class ChatEngine{
-    constructor(chatBoxId,userEmail){
-        this.chatBox=$(`#${chatBoxId}`);
-        this.userEmail=userEmail;
-        this.socket=io.connect('http://localhost:5000');
+class ChatEngine {
+    constructor(chatBoxId, userEmail) {
+        this.chatBox = $(`#${chatBoxId}`);
+        this.userEmail = userEmail;
+        this.socket = io.connect('http://localhost:5000');
 
-        if(this.userEmail){
+        if (this.userEmail) {
             this.connectionHandler();
         }
     }
-    connectionHandler(){
-        let self= this;
-        this.socket.on('connect',function(){
+    connectionHandler() {
+        let self = this;
+        this.socket.on('connect', function () {
             console.log('Connection established');
-      
-        self.socket.emit('join_room',{
-            user_email:self.userEmail,
-            chatroom:'codeial'
-        });
-        self.socket.on('user_joined',function(data){
-            console.log('a new user joined',data);
-        });
+
+            self.socket.emit('join_room', {
+                user_email: self.userEmail,
+                chatroom: 'codeial'
+            });
+            self.socket.on('user_joined', function (data) {
+                console.log('a new user joined', data);
+            });
 
         });
-        
-        $('#send-message').click(function(){
-          let msg = $('#chat-message-input').val();
 
-          if(msg !=''){
-              self.socket.emit('send_message',{
-                  message: msg,
-                  user_email: self.userEmail,
-                  chatroom:'codeial'
-              });
-          }
+        $('#send-message').click(function () {
+            let msg = $('#chat-message-input').val();
+
+            if (msg != '') {
+                self.socket.emit('send_message', {
+                    message: msg,
+                    user_email: self.userEmail,
+                    chatroom: 'codeial'
+                });
+            }
         });
 
-        self.socket.on('receive_message',function(data){
-         console.log('message received',data.message);
+        self.socket.on('receive_message', function (data) {
+            console.log('message received', data.message);
 
-         let newMessage= $('<li>');
+            let newMessage = $('<li>');
 
-         let messageType='other-message';
+            let messageType = 'other-message';
 
-         if(data.user_email== self.userEmail){
-             messageType = 'self-message';
-         }
-         
-         newMessage.append($('<span>',{
-             
-             'html':data.message,
-             
-         }));
+            if (data.user_email == self.userEmail) {
+                messageType = 'self-message';
+            }
 
-         newMessage.append($('<sub>', {
-            'html': data.user_email
-        }));
+            newMessage.append($('<span>', {
+                'html': data.message,
+            }));
 
-        newMessage.addClass(messageType);
+            newMessage.append($('<sub>', {
+                'html': data.user_email
+            }));
 
-        $('#chat-messages-list').append(newMessage);
+            newMessage.addClass(messageType);
+
+            $('#chat-messages-list').append(newMessage);
 
         });
 
@@ -74,7 +72,7 @@ if (!myStorage.getItem('chatID')) {
     myStorage.setItem('chatID', createUUID());
 }
 
-setTimeout(function() {
+setTimeout(function () {
     element.addClass('enter');
 }, 1000);
 
@@ -101,7 +99,7 @@ function closeElement() {
     element.find('.header button').off('click', closeElement);
     element.find('#sendMessage').off('click', sendNewMessage);
     element.find('.text-box').off('keydown', onMetaAndEnter).prop("disabled", true).blur();
-    setTimeout(function() {
+    setTimeout(function () {
         element.find('.chat').removeClass('enter').show()
         element.click(openElement);
     }, 500);

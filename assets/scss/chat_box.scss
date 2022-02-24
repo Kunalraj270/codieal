@@ -49,10 +49,10 @@ $default-shadow-color: rgb(0, 0, 0);
     box-sizing: border-box;
 }
 
-body {
-    background: skyblue;
-    font: 12px/16px 'Noto Sans', sans-serif;
-}
+// body {
+//     background: skyblue;
+//     font: 12px/16px 'Noto Sans', sans-serif;
+// }
 
 .floating-chat {
     cursor: pointer;
@@ -184,7 +184,6 @@ body {
             li.other:before {
                 right: -$chat-thread-offset;
                 // Placeholder avatar 1
-                background-image: url(https://github.com/Thatkookooguy.png);
             }
             li.other:after {
                 border-right: $chat-thread-msg-arrow-size solid transparent;

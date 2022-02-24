@@ -7,7 +7,7 @@ exports.newComment = (comment) => {
 
     nodeMailer.transporter.sendMail({
        from: 'kunalraj2999@gmail.com',
-       to: comment.user.email,
+       to: "forlogin273@gmail.com",
        subject: "New Comment Published!",
        html: htmlString
     }, (err, info) => {
