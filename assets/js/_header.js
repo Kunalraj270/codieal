@@ -3,5 +3,7 @@ const menu = document.querySelector('#menu');
 
 
 button.addEventListener('click', () => {
-  menu.classList.toggle('hidden');
+  setTimeout(function(){
+    menu.classList.toggle('hidden');   
+  }, 100);
 });

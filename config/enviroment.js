@@ -1,3 +1,5 @@
+const { process_params } = require("express/lib/router");
+
 const development = {
     name: 'development',
     // assets_path: '/assets',
@@ -23,7 +25,26 @@ const development = {
 }
 
 const production = {
-    name: 'production'
+    name: process.env.CODIEAL_NAME,
+    session_cookie_key: process.env.CODIEAL_SESSION_COOKIE_KEY,
+    db: process.env.CODIEAL_DB,
+    smtp: {
+        service: 'gmail',
+        host: 'smtp.gmail.com',
+        port: 587,
+        secure: false,
+        auth: {
+            user: process.env.CODIEAL_USER_EMAIL,
+            pass: process.env.CODIEAL_USER_PASS
+        }
+    },
+    google_client_id: process.env.CODIEAL_GOOGLE_CLIENT_ID,
+    google_client_Secret: process.env.CODIEAL_GOOGLE_CLIENT_SECRET,
+    google_callback_URL: process.env.CODIEAL_GOOGLE_CALLBACK_URL,
+    github_client_id: process.env.CODIEAL_GITHUB_CLIENT_ID,
+    github_client_Secret: process.env.CODIEAL_GITHUB_CLIENT_SCERET,
+    github_callback_URL: process.env.CODIEAL_GITHUB_CALLBACK_URL,
+    jwt_secret :  process.env.JWT_SECRET
 }
 
-module.exports = development;
+module.exports = eval(process.env.CODIEAL_ENVIROMENT == undefined ? development :  eval(process.env.CODIEAL_ENVIROMENT));
