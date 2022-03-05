@@ -1,5 +1,6 @@
 const express = require('express');
 const env = require('./config/enviroment');
+const logger = require('morgan');
 //cookies parser
 const cookieParser = require('cookie-parser');
 const app = express();
@@ -16,7 +17,7 @@ const passportJwt = require('./config/passport-jwt-strategy');
 const passportGoogle = require('./config/passport-google-oauth2-stratgey');
 const passportGithub = require('./config/passport-github-strategy');
 //connect mongostore to mongo db
-const  MongoStore = require('connect-mongo');
+const MongoStore = require('connect-mongo');
 
 const sassMiddleware = require('node-sass-middleware');
 
@@ -34,13 +35,17 @@ console.log('chat server is up running on port on 5000');
 const path = require('path');
 
 // we put before server run
-app.use(sassMiddleware({
-    src: './assets/scss',
-    dest: './assets/css',
-    debug: true,
-    outputStyle: 'expanded',
-    prefix: '/css'
-}));
+if (env.name == 'development') {
+    app.use(sassMiddleware({
+        // src: './assets/scss',
+        // dest: './assets/css',
+        src : path.join(__dirname , env.ASSETS_PATH , 'scss'),
+        dest : path.join(__dirname , env.ASSETS_PATH , 'css'),
+        debug: true,
+        outputStyle: 'expanded',
+        prefix: '/css'
+    }));
+}
 
 app.use(express.urlencoded());
 app.use(cookieParser());
@@ -49,7 +54,10 @@ app.use(cookieParser());
 //Use for assets
 app.use(express.static('./assets'));
 // make the upload path for the broweser
-app.use('/uploads' , express.static(__dirname + '/uploads'));
+app.use('/uploads', express.static(__dirname + '/uploads'));
+
+app.use(logger(env.morgan.mode, env.morgan.options));               
+
 //layouts
 app.use(expressLayouts);
 

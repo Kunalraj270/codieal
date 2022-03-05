@@ -2,6 +2,8 @@
 <div class="mt-8 shadow-lg p-7 rounded-lg">
     <li id="post-<%= post._id %>">
         <p>
+
+               
             <% if (locals.user && locals.user.id==post.user.id){ %>
                 <div class="flex items-center space-x-5 justify-between ">
                     <div class="flex items-center space-x-5">
@@ -18,10 +20,12 @@
                     </small>
                 </div>
                 <% } %>
+     
                     <p class="mt-4">
                         <%= post.content %>
                     </p>
                     <br>
+                    
         </p>
         <hr class="border-gray-400">
 

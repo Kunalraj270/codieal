@@ -1,0 +1,27 @@
+[0mGET / [36m304[0m 62.220 ms - -[0m
+[0mGET /favicon.ico [0m-[0m - ms - -[0m
+[0mGET / [32m200[0m 22.731 ms - 15954[0m
+[0mGET /favicon.ico [0m-[0m - ms - -[0m
+[0mGET /users/profile/6211f142b392189f0dd24c8c [32m200[0m 107.650 ms - 5133[0m
+[0mGET /js/user_profile.js [33m404[0m 8.514 ms - 157[0m
+[0mGET /js/user_profile.js [33m404[0m 21.457 ms - 157[0m
+[0mGET /favicon.ico [0m-[0m - ms - -[0m
+[0mGET / [0m-[0m - ms - -[0m
+[0mGET /users/profile/6211f185b392189f0dd24c96 [32m200[0m 9.062 ms - 5969[0m
+[0mGET /js/user_profile.js [33m404[0m 9.968 ms - 157[0m
+[0mGET /js/user_profile.js [33m404[0m 7.035 ms - 157[0m
+[0mGET /favicon.ico [0m-[0m - ms - -[0m
+
+ [0mGET /users/profile/6211f185b392189f0dd24c96 [36m302[0m 145.815 ms - 72[0m
+[0mGET /users/sign-in [32m200[0m 75.972 ms - 8861[0m
+[0mGET /favicon.ico [33m404[0m 2.797 ms - 150[0m
+[0mGET /users/auth/google [36m302[0m 82.775 ms - 0[0m
+[0mGET /users/auth/google/callback?code=4%2F0AX4XfWjV-R0e7EmymJ-Vtso64UAtLXgdMUPmxs3Txpit0z4MG04DrvYjN4vMOZNnwU1hrA&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+openid&authuser=0&prompt=none [36m302[0m 2483.389 ms - 46[0m
+[0mGET / [32m200[0m 49.190 ms - 17193[0m
+[0mGET /favicon.ico [0m-[0m - ms - -[0m
+[0mGET / [32m200[0m 21.398 ms - 16663[0m
+[0mGET / [32m200[0m 12.857 ms - 16663[0m
+[0mGET /favicon.ico [33m404[0m 965.377 ms - 150[0m
+[0mGET / [36m304[0m 172.560 ms - -[0m
+[0mGET / [32m200[0m 95.851 ms - 11135[0m
+[0mGET / [0m-[0m - ms - -[0m

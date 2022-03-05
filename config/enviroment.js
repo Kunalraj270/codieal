@@ -1,8 +1,20 @@
-const { process_params } = require("express/lib/router");
+// const { process_params } = require("express/lib/router");
+const fs = require('fs');
+const rfs = require('rotating-file-stream');
+const path = require('path');
+const morgan = require('morgan');
+
+const logDirectory = path.join(__dirname, '../production_logs');
+fs.existsSync(logDirectory) || fs.mkdirSync(logDirectory);
+
+const accessLogStream = rfs.createStream('access.log', {
+    interval: '1d',
+    path: logDirectory
+});
 
 const development = {
     name: 'development',
-    // assets_path: '/assets',
+    ASSETS_PATH: '/assets',
     session_cookie_key: 'helloWorld',
     db: 'codieal_development',
     smtp: {
@@ -21,7 +33,11 @@ const development = {
     github_client_id: "8e51cd4e679ddd854d0a",
     github_client_Secret: "c8e2f2c2f3bf51f18b9d63ffe7ecf1defb26768f",
     github_callback_URL: "http://localhost:8000/users/auth/github/callback",
-    jwt_secret : 'codeial'
+    jwt_secret : 'codeial',
+    morgan: {
+        mode: 'dev',
+        options: {stream: accessLogStream}
+    }
 }
 
 const production = {
@@ -44,7 +60,11 @@ const production = {
     github_client_id: process.env.CODIEAL_GITHUB_CLIENT_ID,
     github_client_Secret: process.env.CODIEAL_GITHUB_CLIENT_SCERET,
     github_callback_URL: process.env.CODIEAL_GITHUB_CALLBACK_URL,
-    jwt_secret :  process.env.JWT_SECRET
+    jwt_secret :  process.env.JWT_SECRET,
+    morgan: {
+        mode: 'combined',
+        options: {stream: accessLogStream}
+    }
 }
 
 module.exports = eval(process.env.CODIEAL_ENVIROMENT == undefined ? development :  eval(process.env.CODIEAL_ENVIROMENT));

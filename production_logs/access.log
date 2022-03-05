@@ -1,0 +1,26 @@
+
+[0mGET / [32m200[0m 1079.266 ms - 11296[0m
+[0mGET /favicon.ico [0m-[0m - ms - -[0m
+[0mGET /users/sign-in [32m200[0m 23.907 ms - 8873[0m
+[0mPOST /users/create-session [36m302[0m 178.701 ms - 46[0m
+[0mGET / [32m200[0m 512.163 ms - 11296[0m
+[0mGET / [32m200[0m 77.173 ms - 15881[0m
+[0mGET /users/sign-out [36m302[0m 6.249 ms - 46[0m
+[0mGET / [32m200[0m 11.553 ms - 11823[0m
+[0mGET /users/sign-in [36m304[0m 2.696 ms - -[0m
+[0mPOST /users/create-session [36m302[0m 3.829 ms - 46[0m
+[0mGET / [32m200[0m 16.374 ms - 15881[0m
+[0mPOST /posts/create [36m302[0m 18.548 ms - 44[0m
+[0mPOST /posts/create [36m302[0m 20.373 ms - 44[0m
+[0mGET / [32m200[0m 70.830 ms - 21505[0m
+[0mGET / [32m200[0m 88.579 ms - 21505[0m
+[0mGET / [32m200[0m 16.439 ms - 21019[0m
+[0mGET /posts/destroy/622371ba196ceafbe4e73bc9 [36m302[0m 20.492 ms - 88[0m
+[0mGET / [32m200[0m 17.839 ms - 18724[0m
+[0mGET /favicon.ico [0m-[0m - ms - -[0m
+[0mPOST /likes/toggle/?id=622371ba196ceafbe4e73bc7&type=Post [32m200[0m 11.517 ms - 63[0m
+[0mGET /users/profile/6212598b8615278834af57d2 [32m200[0m 105.172 ms - 5993[0m
+[0mGET /js/user_profile.js [33m404[0m 12.511 ms - 157[0m
+[0mGET /js/user_profile.js [33m404[0m 18.340 ms - 157[0m
+[0mGET /favicon.ico [0m-[0m - ms - -[0m
+[0mGET / [32m200[0m 59.045 ms - 18185[0m

@@ -1,0 +1,27 @@
+.dyanmic-texts li {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ff0081;
+}
+
+.dyanmic-texts li span {
+  position: relative;
+}
+
+.dyanmic-texts li span:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  background: #fff;
+  height: 100%;
+  width: 100%;
+  border-left: 2px solid #424242;
+  animation: typing 1.9s steps(14) infinite;
+}
+
+@keyframes typing {
+  100% {
+    left: 100%;
+  }
+}
