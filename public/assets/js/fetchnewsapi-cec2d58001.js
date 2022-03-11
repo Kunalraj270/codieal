@@ -14,7 +14,7 @@ function retrieve(e) {
     const apiKey = `9ab00a2b8aca430bb87f49f64fcb3a2a`;
     let topic = input.value;
 
-    let url = `https://newsapi.org/v2/everything?q=${topic}&apiKey=${apiKey}`;
+    let url = ` https://newsapi.org/v2/everything?q=${topic}&apiKey=${apiKey}`;
 
     fetch(url).then((res)=>{
         return res.json()
@@ -28,7 +28,7 @@ function retrieve(e) {
             li.appendChild(a);
             newsList.appendChild(li);
         })
-    });
+    })
 
 }
 

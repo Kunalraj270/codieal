@@ -32,7 +32,7 @@ gulp.task('css', function (done) {
 gulp.task('js', function (done) {
     console.log('minification js...');
     gulp.src('./assets/**/*.js')
-        // .pipe(uglify())
+        .pipe(uglify())
         .pipe(rev())
         .pipe(gulp.dest('./public/assets'))
         .pipe(rev.manifest({
@@ -47,7 +47,7 @@ gulp.task('js', function (done) {
 gulp.task('images', function (done) {
     console.log('images minification....');
     gulp.src('./assets/**/*.+(png|jpg|gif|jepg|webp)')
-        // .pipe(imagine())
+        .pipe(imagine())
         .pipe(rev())
         .pipe(gulp.dest('./public/assets'))
         .pipe(rev.manifest({

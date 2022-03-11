@@ -1,5 +1,5 @@
 
-<div class="mt-8 shadow-lg p-7 rounded-lg">
+<div class="mt-8 shadow-lg p-7 rounded-lg border-2 border-grey-200 ">
     <li id="post-<%= post._id %>">
         <p>
 
@@ -10,7 +10,7 @@
                         <img class="rounded-full w-12 h-12" src="<%=post.user.avatar%>" alt="<%=user.name%>" width="100">
                         <p>
                             <%=post.user.name%>
-                            timestamp
+                          
                         </p>
                     </div>
                     <small>
@@ -76,4 +76,4 @@
 
 
 
-<script src="js/comment.js"></script>
+<script src="<%=assetsPath('js/comment.js')%>"></script>

@@ -11,9 +11,14 @@ body {
 .home-container .left-container {
   flex-basis: 25%;
   position: sticky;
+  margin-left: 0;
   top: 70px;
   align-self: flex-start;
   font-size: 1.5rem;
+}
+
+.home-container .left-container h4 {
+  text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
 }
 
 .home-container .right-container {

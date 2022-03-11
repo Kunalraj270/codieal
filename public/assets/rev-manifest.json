@@ -11,6 +11,7 @@
   "js/_header.js": "js/_header-7652598074.js",
   "js/chat_engine.js": "js/chat_engine-be8967b8e6.js",
   "js/comment.js": "js/comment-b5fae4d44c.js",
+  "js/fetchnewsapi.js": "js/fetchnewsapi-cec2d58001.js",
   "js/home.js": "js/home-b6517d44af.js",
   "js/home_comment.js": "js/home_comment-390f483717.js",
   "js/home_posts.js": "js/home_posts-a3d5abf789.js",
