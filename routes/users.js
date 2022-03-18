@@ -13,6 +13,9 @@ router.post('/update/:id', passport.checkAuthentication, usersController.update)
 router.get('/sign-up', usersController.signUp);
 router.get('/sign-in', usersController.singIn);
 
+// newsfeed
+router.get('/newsfeed' , usersController.newsfeed);
+
 
 router.post('/create-session', passport.authenticate(
     // Middlewar if the user fail to sign then redirect ot sign-in page

@@ -81,6 +81,13 @@ module.exports.singIn = function (req, res) {
     });
 }
 
+// newsfeed
+module.exports.newsfeed = function(req , res){
+     return res.render('newsapi' , {
+         title : "Codieal | newsfeed"
+     });
+}
+
 //get the sign up data
 module.exports.create = function (req, res) {
     if (req.body.password != req.body.Confirm_password) {
