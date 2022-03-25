@@ -2,107 +2,216 @@
 <link rel="stylesheet" href="<%= assetsPath('/css/home.css')%>">
 <link rel="stylesheet" href="<%= assetsPath('css/_post.css')%>">
 <link rel="stylesheet" href="<%= assetsPath('css/chat_box.css')%>">
+<link rel="stylesheet" href="/css/user_sign_up.css">
 
-<div class="home-container">
-    <!-- left side container -->
-    <div class="left-container">
-        <h4 class="font-bold">News Feed</h4>
-        <form class="search mt-5">
-            <label class="relative block">
-                <span><i class="bi bi-search absolute text-md opacity-20 pl-1.5"></i></span>
-                <span class="sr-only">Search</span>
-                <span class="absolute inset-y-0 left-0 flex items-center pl-2">
-                  <svg class="h-5 w-5 fill-slate-300" viewBox="0 0 20 20"><!-- ... --></svg>
-                </span>
-                <input class="input placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm" placeholder="Search News..." type="text" name="search" required/>
-              </label>
-            <!-- <label class="text-xl" for="news" >Search News and read</label> -->
-            <!-- <input  type="text" class="input" placeholder="Search News"> -->
-            <button type="submit" class="bg-violet-600 rounded-md text-sm p-2 text-white mt-3 hover:bg-violet-800">Submit</button>
-        </form>
-        <div class="container">
-            <ul class="news-list list-disc text-blue-800">
-              
-            </ul>
+<% if(locals.user){ %>
+
+    <div class="home-container">
+        <!-- left side container -->
+        <div class="left-container">
+            <h4 class="font-bold">News Feed</h4>
+            <img src="/images/news.png" alt="news">
+            <form class="search mt-5">
+                <label class="relative block">
+                    <span><i class="bi bi-search absolute text-md opacity-20 pl-1.5"></i></span>
+                    <span class="sr-only">Search</span>
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+                        <svg class="h-5 w-5 fill-slate-300" viewBox="0 0 20 20">
+                            <!-- ... -->
+                        </svg>
+                    </span>
+                    <input
+                        class="input placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
+                        placeholder="Search News..." type="text" name="search" required />
+                </label>
+                <!-- <label class="text-xl" for="news" >Search News and read</label> -->
+                <!-- <input  type="text" class="input" placeholder="Search News"> -->
+                <button type="submit"
+                    class="bg-violet-600 rounded-md text-sm p-3 pl-10 pr-10  text-white mt-3 hover:bg-violet-800">Submit</button>
+            </form>
+            <div class="container">
+                <ul class="news-list list-disc text-blue-800">
+
+                </ul>
+            </div>
         </div>
-    </div>
-    <!-- main container -->
-    <div class="main-content">
+        <!-- main container -->
+        <div class="main-content">
 
-        <div class="write-post-container">
+            <div class="write-post-container">
 
-            <div class="post-input-container">
-                <section id="feed-posts">
-                    <h4>Posts</h4>
-                    <% if(locals.user){ %>
-                    <form action="/posts/create" id="new-post-form" method="POST">
-                        <textarea name="content" cols="30" rows="3" id="btnShowHide"
-                            placeholder="What's on your mind,<%=user.name%>?" required></textarea>
-                        <!-- <input type="submit" value="Post"> -->
-                        <button class="button bg-violet-800 text-white p-2 px-5 rounded-md hover:bg-violet-500" type="submit" value="Post">Post</button>
-                    </form>
+                <div class="post-input-container">
+                    <section id="feed-posts">
+                        <h4>Posts</h4>
+                        <% if(locals.user){ %>
+                            <form action="/posts/create" id="new-post-form" method="POST">
+                                <textarea name="content" cols="30" rows="3" id="btnShowHide"
+                                    placeholder="What's on your mind,<%=user.name%>?" required></textarea>
+                                <!-- <input type="submit" value="Post"> -->
+                                <button class="button bg-violet-800 text-white p-2 px-5 rounded-md hover:bg-violet-500"
+                                    type="submit" value="Post">Post</button>
+                            </form>
+                            <% } %>
+
+                    </section>
+
+                </div>
+            </div>
+
+
+
+            <div id="posts-list-container" class="posts-container">
+                <ul>
+                    <% for(post of posts){ %>
+
+                        <%- include('_post') -%>
+
+                            <%} %>
+                </ul>
+            </div>
+        </div>
+
+
+        <!-- right container -->
+        <div class="right-container">
+            <section id="user-friends">
+                <h4>Friends</h4>
+                <% for(u of all_users){%>
+
+                    <div class="friend-list">
+                        <i class="bi bi-dot"></i>
+                        <div> <img src="<%=u.avatar%>" alt="<%=u.name%>" width="50"></div>
+                        <div> <a href="/users/profile/<%= u.id %>">
+                                <%= u.name %>
+                            </a></div>
+                    </div>
                     <% } %>
+            </section>
+        </div>
 
+
+        <!-- include chat box in home page -->
+        <%- include('_chat_box') -%>
+    </div>
+
+    <% }else{ %>
+        <ul class="dyanmic-texts">
+            <li><span>Welcome To Codeial</span></li>
+        </ul>
+        <h1 class="text-4xl text-violet-900  flex justify-center items-center mt-10 font-extrabold">Login for Better Exprience</h1>
+        <!-- <button class="h-10 mt-3 mb-3 bg-slate-800 font-bold text-white rounded-md hover:bg-slate-600"> <a
+            class="md:p-2 py-2 block " href="/users/sign-in">Log In</a></button> -->
+        <div class="home-container blur-sm">
+            <!-- left side container -->
+            <div class="left-container">
+                <h4 class="font-bold">News Feed</h4>
+                <img src="/images/news.png" alt="news">
+                <form class="search mt-5">
+                    <label class="relative block">
+                        <span><i class="bi bi-search absolute text-md opacity-20 pl-1.5"></i></span>
+                        <span class="sr-only">Search</span>
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+                            <svg class="h-5 w-5 fill-slate-300" viewBox="0 0 20 20">
+                                <!-- ... -->
+                            </svg>
+                        </span>
+                        <input
+                            class="input placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
+                            placeholder="Search News..." type="text" name="search" required />
+                    </label>
+                    <!-- <label class="text-xl" for="news" >Search News and read</label> -->
+                    <!-- <input  type="text" class="input" placeholder="Search News"> -->
+                    <button type="submit"
+                        class="bg-violet-600 rounded-md text-sm p-3 pl-10 pr-10  text-white mt-3 hover:bg-violet-800">Submit</button>
+                </form>
+                <div class="container">
+                    <ul class="news-list list-disc text-blue-800">
+
+                    </ul>
+                </div>
+            </div>
+            <!-- main container -->
+            <div class="main-content">
+
+                <div class="write-post-container">
+
+                    <div class="post-input-container">
+                        <section id="feed-posts">
+                            <h4>Posts</h4>
+                            <% if(locals.user){ %>
+                                <form action="/posts/create" id="new-post-form" method="POST">
+                                    <textarea name="content" cols="30" rows="3" id="btnShowHide"
+                                        placeholder="What's on your mind,<%=user.name%>?" required></textarea>
+                                    <!-- <input type="submit" value="Post"> -->
+                                    <button
+                                        class="button bg-violet-800 text-white p-2 px-5 rounded-md hover:bg-violet-500"
+                                        type="submit" value="Post">Post</button>
+                                </form>
+                                <% } %>
+
+                        </section>
+
+                    </div>
+                </div>
+
+
+
+                <div id="posts-list-container" class="posts-container">
+                    <ul>
+                        <% for(post of posts){ %>
+
+                            <%- include('_post') -%>
+
+                                <%} %>
+                    </ul>
+                </div>
+            </div>
+
+
+            <!-- right container -->
+            <div class="right-container">
+                <section id="user-friends">
+                    <h4>Friends</h4>
+                    <% for(u of all_users){%>
+
+                        <div class="friend-list">
+                            <i class="bi bi-dot"></i>
+                            <div> <img src="<%=u.avatar%>" alt="<%=u.name%>" width="50"></div>
+                            <div> <a href="/users/profile/<%= u.id %>">
+                                    <%= u.name %>
+                                </a></div>
+                        </div>
+                        <% } %>
                 </section>
-
             </div>
+
+
+            <!-- include chat box in home page -->
+            <%- include('_chat_box') -%>
         </div>
+        <% } %>
 
 
 
-        <div id="posts-list-container" class="posts-container">
-            <ul>
-                <% for(post of posts){ %>
+            <script src="<%=assetsPath('/js/fetchnewsapi.js')%>"></script>
+            <script src="<%=assetsPath('/js/home_comment.js')%>"></script>
+            <script src="<%=assetsPath('/js/home_posts.js')%>"></script>
+            <script src="<%=assetsPath('/js/toggle_likes.js')%>"></script>
+            <script>
+                $('.toggle-like-button').each(function () {
+                    let self = this;
+                    let toggleLike = new ToggleLike(self);
+                });
+            </script>
 
-                <%- include('_post') -%>
+            <script src="<%=assetsPath('/js/home.js')%>"></script>
 
-                <%} %>
-            </ul>
-        </div>
-    </div>
+            <script src="<%=assetsPath('/js/post_button.js')%>"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+            <script src="<%=assetsPath('/js/chat_engine.js')%>"></script>
+            <% if(locals.user) { %>
+                <script>
+                    new ChatEngine('user-chat-box', '<%= locals.user.email %>')
+                </script>
 
-
-    <!-- right container -->
-    <div class="right-container">
-        <section id="user-friends">
-            <h4>Friends</h4>
-            <% for(u of all_users){%>
-
-            <div class="friend-list">
-                <i class="bi bi-dot"></i>
-                <div> <img src="<%=u.avatar%>" alt="<%=u.name%>" width="50"></div>
-                <div> <a href="/users/profile/<%= u.id %>"><%= u.name %></a></div>
-            </div>
-            <% } %>
-        </section>
-    </div>
-    
-    
-    <!-- include chat box in home page -->
-       <%- include('_chat_box') -%>
-</div>
-
-   
- 
-<script src="<%=assetsPath('/js/fetchnewsapi.js')%>"></script>
-  <script src="<%=assetsPath('/js/home_comment.js')%>"></script>
-<script src="<%=assetsPath('/js/home_posts.js')%>"></script>
-<script src="<%=assetsPath('/js/toggle_likes.js')%>"></script>
-<script>
-    $('.toggle-like-button').each(function(){
-        let self = this;
-        let toggleLike = new ToggleLike(self);
-    });
-</script>
-
-<script src="<%=assetsPath('/js/home.js')%>"></script>
-
-<script src="<%=assetsPath('/js/post_button.js')%>"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
-<script src="<%=assetsPath('/js/chat_engine.js')%>"></script>
-<% if(locals.user) { %>
-<script>
-    new ChatEngine('user-chat-box' , '<%= locals.user.email %>')
-</script>
-
-<% } %>    
+                <% } %>

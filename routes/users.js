@@ -16,6 +16,8 @@ router.get('/sign-in', usersController.singIn);
 // newsfeed
 router.get('/newsfeed' , usersController.newsfeed);
 
+router.get('/friends' , usersController.friends);
+
 
 router.post('/create-session', passport.authenticate(
     // Middlewar if the user fail to sign then redirect ot sign-in page

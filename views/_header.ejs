@@ -1,11 +1,8 @@
-<body
-    class="
+<body class="
       antialiased
-      bg-gradient-to-r mt-16"
-  >
+      bg-gradient-to-r mt-16">
   <header>
-     <nav
-        class="
+    <nav class="
           bg-violet-900
           fixed
           top-0
@@ -20,76 +17,68 @@
           text-lg text-gray-700
     
           drop-shadow-lg
-        "
-      >
-       <div>
-          <a href="/">
-           <h4 class="text-3xl font-medium text-white ">Codieal</h4>
-            
-          </a>
-        </div>
-       
-         <svg 
-            xmlns="http://www.w3.org/2000/svg"
-            id="menu-button"
-            class="h-6 w-6 cursor-pointer md:hidden block text-white"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
-       
-       <div class="hidden w-full md:flex md:items-center md:w-auto" id="menu">
-          <ul
-            class="
+        ">
+      <div>
+        <a href="/">
+          <h4 class="text-3xl font-medium text-white ">Codieal</h4>
+
+        </a>
+      </div>
+
+      <svg xmlns="http://www.w3.org/2000/svg" id="menu-button" class="h-6 w-6 cursor-pointer md:hidden block text-white"
+        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+
+      <div class="hidden w-full md:flex md:items-center md:w-auto" id="menu">
+        <ul class="
               pt-4
               text-base text-gray-700
               md:flex
               md:justify-between 
               md:pt-0
               space-x-3
-              "
-          >
+              ">
 
 
           <% if (locals.user){ %>
-           <div>
-            <a  class="flex justify-center" href="/users/profile/<%= user.id %>">  <img class=" rounded-full mt-1 h-12 w-12" src="<%=user.avatar%>" alt="<%=user.name%>" width="50"></a>
-           </div>
-            <li>
-                <a  class="md:p-4 py-2 text-white block hover:text-purple-400" href="/users/profile/<%= user.id %>"><%= user.name %></a>
-            </li>
             <li class="md:invisible text-white">
-             <a href="" class="md:p-4 py-2 text-white block hover:text-purple-40">Friends</a>
+              <a href="" class="md:p-4 py-2 text-white block hover:text-purple-40">Friends</a>
             </li>
             <li class="md:invisible text-white">
               <a href="/users/newsfeed" class="md:p-4 py-2 text-white block hover:text-purple-40">New Feed</a>
             </li>
-            <li class = "cursor pointer" >
-              <a class="p-2 md:p-4 py-2 text-black block hover:text-purple-400 bg-white ml-16 mr-16 rounded-md text-md" href="/users/sign-out">Sign Out</a>
+            <li>
+              <a class="flex justify-center" href="/users/profile/<%= user.id %>"> <img
+                  class=" rounded-full mt-1 h-12 w-12" src="<%=user.avatar%>" alt="<%=user.name%>" width="50"></a>
             </li>
-            
+            <li>
+              <a class="md:p-4 py-2 text-white block hover:text-purple-400" href="/users/profile/<%= user.id %>">
+                <%= user.name %>
+              </a>
+            </li>
+            <li class="cursor pointer">
+              <button class=" h-10 mt-3 mb-3 bg-blue-800 font-bold text-white rounded-md hover:bg-blue-600"> <a
+                  class=" md:p-2 py-2 block" href="/users/sign-out">Log out</a></button>
+            </li>
+
             <% }else{ %>
-             <li class = "cursor pointer" >
-             <button class=" h-10 mt-3 mb-3 bg-blue-800 font-bold text-white rounded-md hover:bg-blue-600"> <a  class=" md:p-2 py-2 block" href="/users/sign-up">Sign Up</a></button>
-            </li>
-            <li class = "cursor pointer" >
-              <button class=" h-10 mt-3 mb-3 bg-slate-800 font-bold text-white rounded-md hover:bg-slate-600"> <a class="md:p-2 py-2 block "href="/users/sign-in">Log In</a></button>
-            </li>
-        
-           
-    
-            <% } %>
-         
-       
-          </ul>
-        </div>
+              <li class="cursor pointer">
+                <button class=" h-10 mt-3 mb-3 bg-blue-800 font-bold text-white rounded-md hover:bg-blue-600"> <a
+                    class=" md:p-2 py-2 block" href="/users/sign-up">Sign Up</a></button>
+              </li>
+              <li class="cursor pointer">
+                <button class=" h-10 mt-3 mb-3 bg-slate-800 font-bold text-white rounded-md hover:bg-slate-600"> <a
+                    class="md:p-2 py-2 block " href="/users/sign-in">Log In</a></button>
+              </li>
+
+
+
+              <% } %>
+
+
+        </ul>
+      </div>
     </nav>
   </header>
 </body>

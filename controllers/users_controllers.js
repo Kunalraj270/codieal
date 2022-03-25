@@ -1,7 +1,7 @@
 //export model user
 const User = require('../models/user');
 const fs = require('fs');
-const path  = require('path');
+const path = require('path');
 
 module.exports.profile = async function (req, res) {
     // return res.end('<h1>Users Profile</h1>');
@@ -27,18 +27,18 @@ module.exports.update = async function (req, res) {
     if (req.user.id == req.params.id) {
         try {
             let user = await User.findById(req.params.id);
-            User.uploadedAvatar(req , res , function(err) {
+            User.uploadedAvatar(req, res, function (err) {
                 if (err) {
                     console.log('*****multer error', err);
                 }
                 console.log(req.file);
 
                 user.name = req.body.name;
-                user.email  = req.body.email;
+                user.email = req.body.email;
 
-                if(req.file){
-                    if(user.avatar){
-                        fs.unlinkSync(path.join(__dirname , '..' , user.avatar));
+                if (req.file) {
+                    if (user.avatar) {
+                        fs.unlinkSync(path.join(__dirname, '..', user.avatar));
                     }
                     // this is saving the path of the uploaded path into the avatar field in users
                     user.avatar = User.avatarPath + '/' + req.file.filename;
@@ -82,10 +82,18 @@ module.exports.singIn = function (req, res) {
 }
 
 // newsfeed
-module.exports.newsfeed = function(req , res){
-     return res.render('newsapi' , {
-         title : "Codieal | newsfeed"
-     });
+module.exports.newsfeed = function (req, res) {
+  
+    return res.render('newsapi', {
+        title: "Codieal | newsfeed"
+    });
+}
+
+module.exports.friends = function (req, res) {
+   
+    return res.render('friend', {
+        title: "Codieal | friends"
+    });
 }
 
 //get the sign up data
