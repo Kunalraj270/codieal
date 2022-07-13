@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const postSchema = new mongoose.Schema({
     content: {
         type: String,
+        data : Buffer,
         required: true
     },
     user: {

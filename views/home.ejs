@@ -6,11 +6,26 @@
 
 <% if(locals.user){ %>
 
-    <div class="home-container">
+
+    <div class="home-container area">
+        <ul class="circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
         <!-- left side container -->
         <div class="left-container">
-            <h4 class="font-bold">News Feed</h4>
-            <img src="/images/news.png" alt="news">
+            <div class="flex">
+                <img class="w-16" src="https://cdn-icons-png.flaticon.com/512/342/342385.png" alt="news">
+                <h4 class="font-bold top-8">News Feed</h4>
+            </div>
             <form class="search mt-5">
                 <label class="relative block">
                     <span><i class="bi bi-search absolute text-md opacity-20 pl-1.5"></i></span>
@@ -31,15 +46,12 @@
             </form>
             <div class="container">
                 <ul class="news-list list-disc text-blue-800">
-
                 </ul>
             </div>
         </div>
         <!-- main container -->
         <div class="main-content">
-
             <div class="write-post-container">
-
                 <div class="post-input-container">
                     <section id="feed-posts">
                         <h4>Posts</h4>
@@ -48,36 +60,41 @@
                                 <textarea name="content" cols="30" rows="3" id="btnShowHide"
                                     placeholder="What's on your mind,<%=user.name%>?" required></textarea>
                                 <!-- <input type="submit" value="Post"> -->
-                                <button class="button bg-violet-800 text-white p-2 px-5 rounded-md hover:bg-violet-500"
+                                <img src="/images/picture.png" class="w-10 h-10" alt="">
+                                <a href="#overlay" id="open-overlay">Photo</a>
+
+                                <div id="overlay">
+                                    <a href="#" class="close">&times;</a>
+                                    <div style="height:20%"></div>
+                                    <!-- post images -->
+                                    <input type="file" name="avatar" id="icon" placeholder="profile photo">
+                                    <button
+                                    class="button bg-violet-800 text-white p-2 px-5 mt-8 rounded-md hover:bg-violet-500"
+                                    type="submit" value="Post">Post</button>
+                                </div>
+                                <div id="mask" onclick="document.location='#';"></div>
+                                <!-- post button -->
+                                <button
+                                    class="button bg-violet-800 text-white p-2 px-5 mt-8 rounded-md hover:bg-violet-500"
                                     type="submit" value="Post">Post</button>
                             </form>
                             <% } %>
-
                     </section>
-
                 </div>
             </div>
-
-
-
             <div id="posts-list-container" class="posts-container">
                 <ul>
                     <% for(post of posts){ %>
-
                         <%- include('_post') -%>
-
                             <%} %>
                 </ul>
             </div>
         </div>
-
-
         <!-- right container -->
         <div class="right-container">
             <section id="user-friends">
                 <h4>Friends</h4>
                 <% for(u of all_users){%>
-
                     <div class="friend-list">
                         <i class="bi bi-dot"></i>
                         <div> <img src="<%=u.avatar%>" alt="<%=u.name%>" width="50"></div>
@@ -88,17 +105,15 @@
                     <% } %>
             </section>
         </div>
-
-
         <!-- include chat box in home page -->
         <%- include('_chat_box') -%>
     </div>
-
     <% }else{ %>
         <ul class="dyanmic-texts">
             <li><span>Welcome To Codeial</span></li>
         </ul>
-        <h1 class="text-4xl text-violet-900  flex justify-center items-center mt-10 font-extrabold">Login for Better Exprience</h1>
+        <h1 class="text-4xl text-violet-900  flex justify-center items-center mt-10 font-extrabold">Login for Better
+            Exprience</h1>
         <!-- <button class="h-10 mt-3 mb-3 bg-slate-800 font-bold text-white rounded-md hover:bg-slate-600"> <a
             class="md:p-2 py-2 block " href="/users/sign-in">Log In</a></button> -->
         <div class="home-container blur-sm">
@@ -126,15 +141,12 @@
                 </form>
                 <div class="container">
                     <ul class="news-list list-disc text-blue-800">
-
                     </ul>
                 </div>
             </div>
             <!-- main container -->
             <div class="main-content">
-
                 <div class="write-post-container">
-
                     <div class="post-input-container">
                         <section id="feed-posts">
                             <h4>Posts</h4>
@@ -148,32 +160,22 @@
                                         type="submit" value="Post">Post</button>
                                 </form>
                                 <% } %>
-
                         </section>
-
                     </div>
                 </div>
-
-
-
                 <div id="posts-list-container" class="posts-container">
                     <ul>
                         <% for(post of posts){ %>
-
                             <%- include('_post') -%>
-
                                 <%} %>
                     </ul>
                 </div>
             </div>
-
-
             <!-- right container -->
             <div class="right-container">
                 <section id="user-friends">
                     <h4>Friends</h4>
                     <% for(u of all_users){%>
-
                         <div class="friend-list">
                             <i class="bi bi-dot"></i>
                             <div> <img src="<%=u.avatar%>" alt="<%=u.name%>" width="50"></div>
@@ -184,8 +186,6 @@
                         <% } %>
                 </section>
             </div>
-
-
             <!-- include chat box in home page -->
             <%- include('_chat_box') -%>
         </div>
@@ -213,5 +213,4 @@
                 <script>
                     new ChatEngine('user-chat-box', '<%= locals.user.email %>')
                 </script>
-
                 <% } %>

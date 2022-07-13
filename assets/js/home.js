@@ -9,3 +9,6 @@ $('.Hide').click(function() {
     $('.Show').show(0);
     $('.Hide').hide(0);
 });
+
+//Create post images
+
