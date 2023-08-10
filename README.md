@@ -12,10 +12,10 @@ My all social media web application
 
 # Tools && Technologies
 * [Vs code](https://code.visualstudio.com/)
-* Node js
-* express js
-* Mongo db
-* ejs
-* Tailwind css
+* [Node js](https://nodejs.org/en)
+* [express js](https://expressjs.com/)
+* [Mongo db](https://www.mongodb.com/)
+* [ejs](https://ejs.co/)
+* [Tailwind css](https://tailwindcss.com/)
 
 
