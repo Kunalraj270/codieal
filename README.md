@@ -12,10 +12,10 @@ My all social media web application
 
 # Technologies
 * Vs code
-# Node js
-# express js
-# Mongo db
-# ejs
-# Tailwind css
+* Node js
+* express js
+* Mongo db
+* ejs
+* Tailwind css
 
 
