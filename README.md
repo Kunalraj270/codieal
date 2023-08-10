@@ -11,7 +11,7 @@ My all social media web application
 ![Screenshot (73)](https://user-images.githubusercontent.com/96771967/187891390-1d3286d3-fc8b-4b71-abdf-733facf5b6a3.png)
 
 # Tools && Technologies
-* [https://code.visualstudio.com/](Vs code)
+* [](Vs code)
 * Node js
 * express js
 * Mongo db
